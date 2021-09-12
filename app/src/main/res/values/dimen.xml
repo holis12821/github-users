@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--typography-->
+    <dimen name="heading1">30sp</dimen>
+    <dimen name="heading2">25sp</dimen>
+    <dimen name="heading3">15sp</dimen>
+    <dimen name="heading4">14sp</dimen>
+    <dimen name="text_xsmall">11sp</dimen>
+    <dimen name="text_small">12sp</dimen>
+    <dimen name="text_medium">14sp</dimen>
+    <dimen name="text_medium_large">15sp</dimen>
+    <dimen name="text_medium_xlarge">17sp</dimen>
+    <dimen name="text_super_XXXXlerge">170sp</dimen>
+    <dimen name="line_spacing_small">2dp</dimen>
+
+    <!--space mobile-->
+    <dimen name="space_xxlarge">100dp</dimen>
+    <dimen name="space_xmedium">15dp</dimen>
+    <dimen name="space_large">30dp</dimen>
+    <dimen name="space_semi_medium">24dp</dimen>
+    <dimen name="space_small">12dp</dimen>
+    <dimen name="space_xxxsmall">4dp</dimen>
+    <dimen name="space_super_large">15dp</dimen>
+    <dimen name="space_xsmall">12dp</dimen>
+    <dimen name="space_medium_largex">16dp</dimen>
+    <dimen name="space_medium_lerge">14dp</dimen>
+    <dimen name="space_medium">10dp</dimen>
+    <dimen name="space_super_xlarge">45dp</dimen>
+    <dimen name="space_super_xxxlerge2">56dp</dimen>
+    <dimen name="space_super_small">3dp</dimen>
+    <dimen name="space_super_xxxxxlarge">200dp</dimen>
+    <dimen name="space_medium_large">20dp</dimen>
+    <dimen name="space_xmedium_lerge">24dp</dimen>
+    <dimen name="space_xxxxsmall">5dp</dimen>
+    <dimen name="space_xxsmall">8dp</dimen>
+    <dimen name="space_very_small_lerge">-2dp</dimen>
+    <dimen name="space_very_small">0.2dp</dimen>
+    <dimen name="space_super_xxxlerge">55dp</dimen>
+    <dimen name="space_super_xxxxxxlerge">160dp</dimen>
+    <dimen name="space_super_xxlerge">22dp</dimen>
+</resources>

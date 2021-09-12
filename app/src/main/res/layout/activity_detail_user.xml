@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.activity.DetailUserActivity">
+
+        <include
+            android:id="@+id/navigation_view"
+            layout="@layout/navigation_view" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/divider"
+            android:padding="@dimen/space_small"
+            android:text="@string/txt_profile"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="@dimen/heading4"
+            app:layout_constraintTop_toBottomOf="@+id/navigation_view" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ci_profile"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tv_detail_repos"
+            app:layout_constraintTop_toBottomOf="@+id/tv_profile"
+            tools:src="@tools:sample/avatars"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_detail_repos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="18dp"
+            android:text="Repository"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@+id/ci_profile"
+            app:layout_constraintTop_toBottomOf="@+id/tv_calculate_repo"
+            app:layout_constraintEnd_toStartOf="@+id/tv_detail_followers"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_calculate_repo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/tv_detail_repos"
+            app:layout_constraintTop_toTopOf="@+id/ci_profile"
+            app:layout_constraintEnd_toEndOf="@+id/tv_detail_repos"
+            tools:text="0"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_detail_followers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="18dp"
+        android:text="Follower"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/tv_detail_repos"
+        app:layout_constraintTop_toBottomOf="@+id/tv_calculate_followers"
+        app:layout_constraintEnd_toStartOf="@+id/tv_detail_following"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_calculate_followers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            app:layout_constraintTop_toTopOf="@+id/tv_calculate_repo"
+            app:layout_constraintStart_toStartOf="@+id/tv_detail_followers"
+            app:layout_constraintEnd_toEndOf="@+id/tv_detail_followers"
+            tools:text="1"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_detail_following"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:text="Following"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@+id/tv_detail_followers"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_calculate_following"
+            />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_calculate_following"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/tv_detail_following"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="@+id/tv_detail_following"
+            app:layout_constraintTop_toTopOf="@+id/tv_calculate_followers"
+            tools:text="2"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            app:layout_constraintStart_toStartOf="@+id/ci_profile"
+            app:layout_constraintTop_toBottomOf="@+id/ci_profile"
+            tools:text="Name"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:textSize="12sp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_name"
+            app:layout_constraintStart_toStartOf="@+id/tv_name"
+            tools:text="Username"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_company"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:textSize="12sp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_username"
+            app:layout_constraintStart_toStartOf="@+id/tv_username"
+            tools:text="Company"/>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:textSize="12sp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_company"
+            app:layout_constraintStart_toStartOf="@+id/tv_company"
+            tools:text="Location"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
