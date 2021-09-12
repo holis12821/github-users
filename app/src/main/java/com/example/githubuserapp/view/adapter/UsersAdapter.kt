@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.githubuserapp.R
 import com.example.githubuserapp.databinding.ItemUserListBinding
-import com.example.githubuserapp.model.Users
+import com.example.githubuserapp.data.response.Users
 
 class UsersAdapter(private val list: MutableList<Users>?):
     RecyclerView.Adapter<UsersAdapter.UsersViewHolder>() {

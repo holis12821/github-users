@@ -7,7 +7,7 @@
     <data>
         <variable
             name="data"
-            type="com.example.githubuserapp.model.Users" />
+            type="com.example.githubuserapp.data.response.Users" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

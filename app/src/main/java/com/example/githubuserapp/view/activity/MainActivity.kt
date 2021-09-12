@@ -7,9 +7,8 @@ import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.githubuserapp.R
-import com.example.githubuserapp.data.DummyData
 import com.example.githubuserapp.databinding.ActivityMainBinding
-import com.example.githubuserapp.model.Users
+import com.example.githubuserapp.data.response.Users
 import com.example.githubuserapp.view.adapter.AdapterClickListener
 import com.example.githubuserapp.view.adapter.UsersAdapter
 import com.example.githubuserapp.view.custom.NavigationView
@@ -45,7 +44,7 @@ class MainActivity : AppCompatActivity() {
         //set LayoutManager that this recyclerView will use
         binding.rvListUsers.setHasFixedSize(true)
         binding.rvListUsers.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        adapter.setData(DummyData.addItem(this))
+        //setdata
         binding.rvListUsers.adapter = adapter
     }
 

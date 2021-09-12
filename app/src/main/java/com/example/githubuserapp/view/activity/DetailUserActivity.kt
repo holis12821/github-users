@@ -6,7 +6,7 @@ import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
 import com.example.githubuserapp.R
 import com.example.githubuserapp.databinding.ActivityDetailUserBinding
-import com.example.githubuserapp.model.Users
+import com.example.githubuserapp.data.response.Users
 import com.example.githubuserapp.view.custom.NavigationView
 
 class DetailUserActivity : AppCompatActivity() {
