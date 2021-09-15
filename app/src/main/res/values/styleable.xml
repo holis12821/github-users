@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--Custom TextView-->
     <declare-styleable name="GithubTextView">
-        <attr name="font_view_type" format="string"/>
+        <attr name="textViewFontFamily" format="string">
+            <enum name="open-sans-regular" value="0"/>
+            <enum name="open-sans-light" value="1"/>
+            <enum name="open-sans-semi-bold" value="2"/>
+            <enum name="open-sans-bold" value="3"/>
+            <enum name="open-san-bold-italic" value="4"/>
+            <enum name="open-sans-extra-bold" value="5"/>
+            <enum name="open-sans-extra-bold-italic" value="6"/>
+            <enum name="open-sans-italic" value="7"/>
+            <enum name="open-sans-light-italic" value="8"/>
+
+        </attr>
+    </declare-styleable>
+    
+    <!--Custom Button-->
+    <declare-styleable name="GithubButton">
+        <attr name="buttonViewFontFamily" format="string">
+            <enum name="open-sans-regular" value="0"/>
+            <enum name="open-sans-light" value="1"/>
+            <enum name="open-sans-semi-bold" value="2"/>
+            <enum name="open-sans-bold" value="3"/>
+            <enum name="open-san-bold-italic" value="4"/>
+            <enum name="open-sans-extra-bold" value="5"/>
+            <enum name="open-sans-extra-bold-italic" value="6"/>
+            <enum name="open-sans-italic" value="7"/>
+            <enum name="open-sans-light-italic" value="8"/>
+        </attr>
     </declare-styleable>
 </resources>

@@ -27,7 +27,8 @@
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="@dimen/heading4"
-            app:layout_constraintTop_toBottomOf="@+id/navigation_view" />
+            app:layout_constraintTop_toBottomOf="@+id/navigation_view"
+            />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/ci_profile"
