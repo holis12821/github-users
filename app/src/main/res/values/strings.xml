@@ -1,10 +1,4 @@
 <resources>
     <string name="app_name">Github User App</string>
     <string name="txt_profile">Profile Users</string>
-
-
-    <!-- Other string resources-->
-
-    <!--Resource for learning constraintLayout-->
-
 </resources>
