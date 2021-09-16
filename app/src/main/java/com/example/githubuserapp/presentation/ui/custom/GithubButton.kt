@@ -3,7 +3,7 @@
  * Copyright (c) 2021 All rights reserved.
  * Created by Nurholis on 15/09/21 11.10 PM
  * Last modified 15/09/21 11.10 PM by Nurholis*/
-package com.example.githubuserapp.view.custom
+package com.example.githubuserapp.presentation.ui.custom
 
 import android.content.Context
 import android.graphics.Typeface

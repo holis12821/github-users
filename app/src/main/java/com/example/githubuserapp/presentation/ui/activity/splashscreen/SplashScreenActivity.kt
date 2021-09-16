@@ -1,4 +1,9 @@
-package com.example.githubuserapp.view.activity
+/**
+ * Github Users Apps
+ * Copyright (c) 2021 All rights reserved.
+ * Created by Nurholis on 15/09/21 13.00 PM
+ * Last modified 15/09/21 13.00 PM by Nurholis*/
+package com.example.githubuserapp.presentation.ui.activity.splashscreen
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +12,7 @@ import android.util.Log
 import androidx.databinding.DataBindingUtil
 import com.example.githubuserapp.R
 import com.example.githubuserapp.databinding.ActivitySplashScreenBinding
+import com.example.githubuserapp.presentation.ui.activity.MainActivity
 
 class SplashScreenActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySplashScreenBinding

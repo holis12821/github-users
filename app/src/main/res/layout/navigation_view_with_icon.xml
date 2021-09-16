@@ -6,36 +6,33 @@
     android:layout_height="@dimen/space_big_semi_medium"
     android:background="@color/black"
     android:orientation="vertical"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/navigation_back"
-        android:layout_width="@dimen/space_super_large"
-        android:layout_height="@dimen/space_super_large"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:clickable="true"
-        android:focusable="true"
-        android:layout_marginTop="@dimen/space_semi_medium"
-        android:layout_marginStart="@dimen/space_medium_large"
-        android:layout_marginEnd="@dimen/space_medium"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/ic_baseline_arrow_back_ios_24"/>
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <com.example.githubuserapp.presentation.ui.custom.GithubTextView
         android:id="@+id/navigation_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/space_xsmall"
+        android:layout_marginStart="@dimen/space_medium_large"
         android:textSize="@dimen/text_medium"
         android:textColor="@color/white"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/navigation_back"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_editor_absoluteY="@dimen/text_medium_large"
         app:textViewFontFamily="open-sans-regular"
         tools:text="Navigation Title"/>
+
+    <ImageView
+        android:id="@+id/icon_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_settings_24"
+        android:layout_marginTop="@dimen/space_xmedium"
+        android:layout_marginEnd="@dimen/space_medium_large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"

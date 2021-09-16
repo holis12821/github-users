@@ -1,4 +1,9 @@
-package com.example.githubuserapp.view.activity
+/**
+ * Github Users Apps
+ * Copyright (c) 2021 All rights reserved.
+ * Created by Nurholis on 15/09/21 13.00 PM
+ * Last modified 15/09/21 13.00 PM by Nurholis*/
+package com.example.githubuserapp.presentation.ui.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -9,9 +14,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.githubuserapp.R
 import com.example.githubuserapp.databinding.ActivityMainBinding
 import com.example.githubuserapp.data.response.Users
-import com.example.githubuserapp.view.adapter.AdapterClickListener
-import com.example.githubuserapp.view.adapter.UsersAdapter
-import com.example.githubuserapp.view.custom.NavigationView
+import com.example.githubuserapp.presentation.ui.activity.detailuser.DetailUserActivity
+import com.example.githubuserapp.presentation.ui.adapter.AdapterClickListener
+import com.example.githubuserapp.presentation.ui.adapter.UsersAdapter
+import com.example.githubuserapp.presentation.ui.custom.NavigationView
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding

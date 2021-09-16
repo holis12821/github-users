@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/toast_container">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_parent"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_big_medium"
+        android:backgroundTint="@color/black"
+        android:layout_marginTop="@dimen/space_small"
+        android:layout_marginLeft="@dimen/space_super_large"
+        android:layout_marginRight="@dimen/space_super_large"
+        app:cardElevation="@dimen/elevation_super_medium"
+        app:cardCornerRadius="@dimen/corner_radius_xSmall"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:padding="@dimen/space_xsmall"
+           android:layout_gravity="center">
+
+           <com.example.githubuserapp.presentation.ui.custom.GithubTextView
+               android:id="@+id/toast_txt"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:ellipsize="end"
+               android:textAlignment="center"
+               android:textColor="@color/white"
+               android:textSize="@dimen/text_medium"
+               app:textViewFontFamily="open-sans-semi-bold"
+               tools:text="@string/toast_txt"
+               tools:lines="1"/>
+
+       </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

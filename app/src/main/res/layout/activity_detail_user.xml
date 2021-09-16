@@ -11,13 +11,13 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.activity.DetailUserActivity">
+        tools:context=".presentation.ui.activity.detailuser.DetailUserActivity">
 
         <include
             android:id="@+id/navigation_view"
             layout="@layout/navigation_view" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.example.githubuserapp.presentation.ui.custom.GithubTextView
             android:id="@+id/tv_profile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -28,6 +28,7 @@
             android:textColor="@color/black"
             android:textSize="@dimen/heading4"
             app:layout_constraintTop_toBottomOf="@+id/navigation_view"
+            app:textViewFontFamily="open-sans-regular"
             />
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -41,7 +42,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_profile"
             tools:src="@tools:sample/avatars"/>
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.example.githubuserapp.presentation.ui.custom.GithubTextView
             android:id="@+id/tv_detail_repos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -52,9 +53,10 @@
             android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@+id/ci_profile"
             app:layout_constraintTop_toBottomOf="@+id/tv_calculate_repo"
-            app:layout_constraintEnd_toStartOf="@+id/tv_detail_followers"/>
+            app:layout_constraintEnd_toStartOf="@+id/tv_detail_followers"
+            app:textViewFontFamily="open-sans-regular"/>
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.example.githubuserapp.presentation.ui.custom.GithubTextView
             android:id="@+id/tv_calculate_repo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -65,9 +67,10 @@
             app:layout_constraintStart_toStartOf="@+id/tv_detail_repos"
             app:layout_constraintTop_toTopOf="@+id/ci_profile"
             app:layout_constraintEnd_toEndOf="@+id/tv_detail_repos"
+            app:textViewFontFamily="open-sans-regular"
             tools:text="0"/>
 
-    <androidx.appcompat.widget.AppCompatTextView
+    <com.example.githubuserapp.presentation.ui.custom.GithubTextView
         android:id="@+id/tv_detail_followers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -78,9 +81,10 @@
         android:textColor="@color/black"
         app:layout_constraintStart_toEndOf="@+id/tv_detail_repos"
         app:layout_constraintTop_toBottomOf="@+id/tv_calculate_followers"
-        app:layout_constraintEnd_toStartOf="@+id/tv_detail_following"/>
+        app:layout_constraintEnd_toStartOf="@+id/tv_detail_following"
+        app:textViewFontFamily="open-sans-regular"/>
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.example.githubuserapp.presentation.ui.custom.GithubTextView
             android:id="@+id/tv_calculate_followers"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -90,9 +94,10 @@
             app:layout_constraintTop_toTopOf="@+id/tv_calculate_repo"
             app:layout_constraintStart_toStartOf="@+id/tv_detail_followers"
             app:layout_constraintEnd_toEndOf="@+id/tv_detail_followers"
+            app:textViewFontFamily="open-sans-regular"
             tools:text="1"/>
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.example.githubuserapp.presentation.ui.custom.GithubTextView
             android:id="@+id/tv_detail_following"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -105,9 +110,10 @@
             app:layout_constraintStart_toEndOf="@+id/tv_detail_followers"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_calculate_following"
+            app:textViewFontFamily="open-sans-regular"
             />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.example.githubuserapp.presentation.ui.custom.GithubTextView
             android:id="@+id/tv_calculate_following"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -118,20 +124,22 @@
             app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="@+id/tv_detail_following"
             app:layout_constraintTop_toTopOf="@+id/tv_calculate_followers"
+            app:textViewFontFamily="open-sans-regular"
             tools:text="2"/>
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.example.githubuserapp.presentation.ui.custom.GithubTextView
             android:id="@+id/tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
             android:textColor="@color/black"
-            android:textSize="17sp"
+            android:textSize="@dimen/text_medium_xlarge"
             app:layout_constraintStart_toStartOf="@+id/ci_profile"
             app:layout_constraintTop_toBottomOf="@+id/ci_profile"
+            app:textViewFontFamily="open-sans-regular"
             tools:text="Name"/>
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.example.githubuserapp.presentation.ui.custom.GithubTextView
             android:id="@+id/tv_username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -139,9 +147,10 @@
             android:textSize="12sp"
             app:layout_constraintTop_toBottomOf="@+id/tv_name"
             app:layout_constraintStart_toStartOf="@+id/tv_name"
+            app:textViewFontFamily="open-sans-regular"
             tools:text="Username"/>
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.example.githubuserapp.presentation.ui.custom.GithubTextView
             android:id="@+id/tv_company"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -149,10 +158,11 @@
             android:textSize="12sp"
             app:layout_constraintTop_toBottomOf="@+id/tv_username"
             app:layout_constraintStart_toStartOf="@+id/tv_username"
+            app:textViewFontFamily="open-sans-regular"
             tools:text="Company"/>
 
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.example.githubuserapp.presentation.ui.custom.GithubTextView
             android:id="@+id/tv_location"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -160,6 +170,7 @@
             android:textSize="12sp"
             app:layout_constraintTop_toBottomOf="@+id/tv_company"
             app:layout_constraintStart_toStartOf="@+id/tv_company"
+            app:textViewFontFamily="open-sans-regular"
             tools:text="Location"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,17 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!--typography-->
+    <!--Corner Radius-->
+    <dimen name="corner_radius_xSmall">8dp</dimen>
+
+    <!--Typography head-->
     <dimen name="heading4">14sp</dimen>
-    <dimen name="text_small">12sp</dimen>
-    <dimen name="text_medium_large">15sp</dimen>
+
+    <!--typography Text-->
+    <dimen name="text_small_medium">12sp</dimen>
+    <dimen name="text_medium">14sp</dimen>
+    <dimen name="text_medium_large">16sp</dimen>
+    <dimen name="text_medium_xlarge">17sp</dimen>
 
     <!--space mobile-->
-    <dimen name="space_small">12dp</dimen>
-    <dimen name="space_xsmall">12dp</dimen>
-    <dimen name="space_medium_largex">16dp</dimen>
-    <dimen name="space_medium_lerge">14dp</dimen>
+    <dimen name="space_xsmall">4dp</dimen>
+    <dimen name="space_xxsmall">6dp</dimen>
+    <dimen name="space_small">8dp</dimen>
     <dimen name="space_medium">10dp</dimen>
-    <dimen name="space_super_xxxlerge2">56dp</dimen>
-    <dimen name="space_xmedium_lerge">24dp</dimen>
+    <dimen name="space_xmedium">12dp</dimen>
+    <dimen name="space_semi_medium">14dp</dimen>
+    <dimen name="space_medium_large">16dp</dimen>
+    <dimen name="space_semi_large">17dp</dimen>
+    <dimen name="space_semi_xlarge">20dp</dimen>
+    <dimen name="space_super_large">24dp</dimen>
+    <dimen name="space_big_medium">45dp</dimen>
+    <dimen name="space_big_semi_medium">56dp</dimen>
+    <dimen name="space_big_xlarge">60dp</dimen>
+
+    <!-- Elevation -->
+    <dimen name="elevation_xsmall">2dp</dimen>
+    <dimen name="elevation_small">4dp</dimen>
+    <dimen name="elevation_flat">6dp</dimen>
+    <dimen name="elevation_medium">10dp</dimen>
+    <dimen name="elevation_float">12dp</dimen>
+    <dimen name="elevation_super_medium">20dp</dimen>
+    <dimen name="elevation_super_large">24dp</dimen>
+    <dimen name="elevation_button">8dp</dimen>
 </resources>

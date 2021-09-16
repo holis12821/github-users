@@ -10,13 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GithubUserApp">
         <activity
-            android:name=".view.activity.MainActivity"
+            android:name="com.example.githubuserapp.presentation.ui.activity.MainActivity"
             android:exported="true" />
         <activity
-            android:name=".view.activity.DetailUserActivity"
+            android:name="com.example.githubuserapp.presentation.ui.activity.detailuser.DetailUserActivity"
             android:exported="true" />
         <activity
-            android:name=".view.activity.SplashScreenActivity"
+            android:name="com.example.githubuserapp.presentation.ui.activity.splashscreen.SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

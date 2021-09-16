@@ -3,14 +3,13 @@
  * Copyright (c) 2021 All rights reserved.
  * Created by Nurholis on 15/09/21 13.00 PM
  * Last modified 15/09/21 13.00 PM by Nurholis*/
-package com.example.githubuserapp.view.custom
+package com.example.githubuserapp.presentation.ui.custom
 
 import android.content.Context
 import android.graphics.Typeface
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatTextView
 import com.example.githubuserapp.R
-import java.util.*
 
 class GithubTextView: AppCompatTextView {
     //add field in class
