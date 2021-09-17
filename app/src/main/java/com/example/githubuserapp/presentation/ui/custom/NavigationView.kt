@@ -30,7 +30,7 @@ class NavigationView (activity: Activity, var view: View? = null) {
     fun setupTitle(title: String?): NavigationView {
         val navigationTitle = view?.findViewById<AppCompatTextView?>(R.id.navigation_title)
         navigationTitle?.let {
-            if (title == "" || title == null) return@let
+            if (title.isNullOrEmpty()) return@let
             else it.text = title
         }
         return this
