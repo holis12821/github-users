@@ -36,30 +36,17 @@
             tools:text="Dummy Name"/>
 
         <com.example.githubuserapp.presentation.ui.custom.GithubTextView
-            android:id="@+id/tv_company"
+            android:id="@+id/tv_htmlUrl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="7dp"
-            android:text="@{data.organizationsUrl}"
+            android:text="@{data.htmlUrl}"
             android:textSize="12sp"
             app:layout_constraintLeft_toRightOf="@+id/ci_profile"
             app:layout_constraintTop_toBottomOf="@+id/tv_username"
             app:textViewFontFamily="open-sans-regular"
             tools:text="Dummy Company"/>
-
-        <com.example.githubuserapp.presentation.ui.custom.GithubTextView
-            android:id="@+id/tv_location"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="7dp"
-            android:text="@{data.gistsUrl}"
-            android:textSize="12sp"
-            app:layout_constraintTop_toBottomOf="@+id/tv_company"
-            app:layout_constraintLeft_toRightOf="@+id/ci_profile"
-            app:textViewFontFamily="open-sans-regular"
-            tools:text="Dummy Location"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
