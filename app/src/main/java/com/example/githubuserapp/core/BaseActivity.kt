@@ -1,8 +1,8 @@
 /**
  * Github Users Apps
  * Copyright (c) 2021 All rights reserved.
- * Created by Nurholis on 16/09/21 08.53 PM
- * Last modified 16/09/21 08.53 PM by Nurholis*/
+ * Created by Nurholis on 16/09/21 08:53 PM
+ * Last modified 16/09/21 08:53 PM by Nurholis*/
 package com.example.githubuserapp.core
 
 import android.app.Activity
@@ -38,7 +38,7 @@ abstract class BaseActivity<B : ViewDataBinding>: AppCompatActivity() {
 
     /**
      * This variable is use for binding the view*/
-    private lateinit var binding: B
+     lateinit var binding: B
 
     /**
      * This function is used for set the view layout

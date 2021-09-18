@@ -29,7 +29,7 @@ android {
             resValue "string", "app_name", "Github Users - Main"
             applicationIdSuffix ".main"
             buildConfigField("String", "BASE_URL", "\"https://api.github.com/\"")
-            buildConfigField("String", "RAJAONGKIR_API_KEY", "\"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\"")
+            buildConfigField("String", "TOKEN", "\"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\"")
         }
 
         staging {
@@ -37,7 +37,7 @@ android {
             resValue "string", "app_name", "Github Users - Staging"
             applicationIdSuffix ".staging"
             buildConfigField("String", "BASE_URL", "\"https://api.github.com/\"")
-            buildConfigField("String", "RAJAONGKIR_API_KEY", "\"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\"")
+            buildConfigField("String", "TOKEN", "\"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\"")
         }
     }
 
@@ -94,8 +94,8 @@ dependencies {
     testImplementation "io.insert-koin:koin-test:3.1.2"
 
     //coroutines
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.3'
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.3"
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2'
 
     // Navigation
     def navigation_version = "2.3.5"

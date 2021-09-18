@@ -1,8 +1,8 @@
 /**
  * Github Users Apps
  * Copyright (c) 2021 All rights reserved.
- * Created by Nurholis on 15/09/21 13.00 PM
- * Last modified 15/09/21 13.00 PM by Nurholis*/
+ * Created by Nurholis on 15/09/21 01:00 PM
+ * Last modified 15/09/21 01:00 PM by Nurholis*/
 package com.example.githubuserapp.presentation.ui.activity.splashscreen
 
 import android.content.Intent
@@ -11,14 +11,15 @@ import android.os.Bundle
 import android.util.Log
 import androidx.databinding.DataBindingUtil
 import com.example.githubuserapp.R
+import com.example.githubuserapp.core.BaseActivity
 import com.example.githubuserapp.databinding.ActivitySplashScreenBinding
 import com.example.githubuserapp.presentation.ui.activity.MainActivity
 
-class SplashScreenActivity : AppCompatActivity() {
-    private lateinit var binding: ActivitySplashScreenBinding
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_splash_screen)
+class SplashScreenActivity: BaseActivity<ActivitySplashScreenBinding>() {
+
+    override fun getResLayoutId(): Int = R.layout.activity_splash_screen
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
         showSplashScreen()
     }
 

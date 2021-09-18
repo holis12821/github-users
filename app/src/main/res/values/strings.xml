@@ -3,4 +3,6 @@
     <string name="toast_txt">Berhasil terkoneksi oleh server</string>
     <string name="toast_txt_danger">Gagal terhubung ke server</string>
     <string name="search">Search</string>
+    <string name="github_title_navbar">Github Users</string>
+    <string name="toast_danger">You\'ve inserted empty value, try again!</string>
 </resources>
