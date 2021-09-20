@@ -5,4 +5,8 @@
     <string name="search">Search</string>
     <string name="github_title_navbar">Github Users</string>
     <string name="toast_danger">You\'ve inserted empty value, try again!</string>
+    <string name="txt_title_no_internet">It does\'t seem to be connected to the network, double check your internet connection.</string>
+    <string name="txt_title_content">Apologies for the inconvenience, thank you.</string>
+    <string name="txt_no_search_found_title">Sorry, it looks like what you\'re looking for isn't in our system database.</string>
+    <string name="txt_title_search_not_found">Make sure what you input is appropriate, thank you!.</string>
 </resources>

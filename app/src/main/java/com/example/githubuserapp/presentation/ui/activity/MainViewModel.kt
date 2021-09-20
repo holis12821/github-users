@@ -9,8 +9,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.githubuserapp.BuildConfig
-import com.example.githubuserapp.data.response.ItemsItem
 import com.example.githubuserapp.data.response.UsersResponse
 import com.example.githubuserapp.domain.usecase.GithubUsersUseCase
 import kotlinx.coroutines.flow.*
@@ -28,6 +26,7 @@ class MainViewModel(
     val isError: LiveData<Throwable> get() = _isError
 
    private val _onSuccess = MutableLiveData<UsersResponse?>()
+   val onSuccess: LiveData<UsersResponse?> get() = _onSuccess
 
    fun getSearchUsers(query: String) {
        viewModelScope.launch {
@@ -49,8 +48,4 @@ class MainViewModel(
                }
        }
    }
-
-    fun onSuccess(): LiveData<UsersResponse?> {
-        return _onSuccess
-    }
 }

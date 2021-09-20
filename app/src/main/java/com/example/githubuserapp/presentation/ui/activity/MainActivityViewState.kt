@@ -5,8 +5,6 @@
  * Last modified 15/09/21 5:47 PM by Nurholis*/
 package com.example.githubuserapp.presentation.ui.activity
 
-import com.example.githubuserapp.data.response.ItemsItem
-
 /**
  * sealed class used to representation a finite class hierarchy.
  * @Sealed support developers to maintain data types of predefined types.

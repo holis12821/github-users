@@ -37,4 +37,8 @@
     <dimen name="elevation_super_medium">20dp</dimen>
     <dimen name="elevation_super_large">24dp</dimen>
     <dimen name="elevation_button">8dp</dimen>
+    
+    <!--Other space-->
+    <dimen name="space_super">235dp</dimen>
+    <dimen name="space_super_medium">160dp</dimen>
 </resources>

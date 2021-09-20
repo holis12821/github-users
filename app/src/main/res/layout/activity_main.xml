@@ -54,22 +54,15 @@
 
         </FrameLayout>
 
-        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="@dimen/space_medium"
-            app:layout_constraintTop_toBottomOf="@+id/container_search"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent">
-
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_list_users"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_marginTop="@dimen/space_medium_large"/>
-
-        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+                android:layout_marginTop="@dimen/space_medium"
+                app:layout_constraintTop_toBottomOf="@+id/container_search"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -13,6 +13,7 @@ import androidx.databinding.DataBindingUtil
 import com.example.githubuserapp.R
 import com.example.githubuserapp.core.BaseActivity
 import com.example.githubuserapp.databinding.ActivitySplashScreenBinding
+import com.example.githubuserapp.external.utils.LogUtils
 import com.example.githubuserapp.presentation.ui.activity.MainActivity
 
 class SplashScreenActivity: BaseActivity<ActivitySplashScreenBinding>() {
@@ -34,7 +35,7 @@ class SplashScreenActivity: BaseActivity<ActivitySplashScreenBinding>() {
                     startActivity(intent)
                     finish()
                 } catch (e: InterruptedException) {
-                    Log.d("Interrupted Exception", e.message ?: "")
+                   LogUtils.print(e)
                 }
             }
         }.start()

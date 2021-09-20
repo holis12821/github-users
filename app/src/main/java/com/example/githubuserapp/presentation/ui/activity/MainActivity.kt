@@ -9,7 +9,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.View
-import androidx.lifecycle.lifecycleScope
 import com.example.githubuserapp.R
 import com.example.githubuserapp.core.BaseActivity
 import com.example.githubuserapp.data.response.ItemsItem
@@ -19,9 +18,6 @@ import com.example.githubuserapp.presentation.ui.activity.detailuser.DetailUserA
 import com.example.githubuserapp.presentation.ui.adapter.AdapterClickListener
 import com.example.githubuserapp.presentation.ui.adapter.UsersAdapter
 import com.example.githubuserapp.presentation.ui.custom.NavigationView
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
@@ -54,7 +50,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     private fun initView() {
         setUpNavigationView()
-        onBackPressed()
 
         binding.btnSearch.setOnClickListener {
             searchUsers()
@@ -73,15 +68,17 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     }
 
-    override fun onBackPressed() {
-        //
-    }
-
     private fun onObserver() {
         viewModel.isLoading.observe(this, { onLoading -> onProgress(onLoading) })
         viewModel.isError.observe(this, { isThrowable -> onShowMessage(isThrowable)})
-        viewModel.onSuccess().observe(this, {
-            adapter.setData(it?.items)
+        viewModel.onSuccess.observe(this, { usersResponse ->
+            if (usersResponse?.items?.filter { username -> username.login.isNullOrEmpty() }.isNullOrEmpty() ) {
+                binding.rvListUsers.viewVisible = false
+                binding.layoutSearchNotFound.viewVisible = true
+            } else {
+                adapter.setData(usersResponse?.items)
+                showPositiveToast(this) {"Showing ${usersResponse?.totalCount} data"}
+            }
         })
     }
 
@@ -122,10 +119,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     private fun onShowMessage(message: Throwable) {
         showToastDanger(this) { message.message ?: "" }
+        binding.rvListUsers.viewVisible = false
+        binding.layoutNoInternet.viewVisible = true
     }
-
-//    private fun onShowData(list: List<ItemsItem>) {
-//        set data
-//        adapter.setData(list)
-//    }
 }

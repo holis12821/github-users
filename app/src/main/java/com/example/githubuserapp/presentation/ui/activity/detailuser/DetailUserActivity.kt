@@ -5,13 +5,9 @@
  * Last modified 15/09/21 13.00 PM by Nurholis*/
 package com.example.githubuserapp.presentation.ui.activity.detailuser
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.databinding.DataBindingUtil
-import com.bumptech.glide.Glide
 import com.example.githubuserapp.R
 import com.example.githubuserapp.core.BaseActivity
-import com.example.githubuserapp.data.response.ItemsItem
 import com.example.githubuserapp.databinding.ActivityDetailUserBinding
 import com.example.githubuserapp.presentation.ui.custom.NavigationView
 
