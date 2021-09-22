@@ -6,6 +6,8 @@
 package com.example.githubuserapp.domain.repository
 
 import com.example.githubuserapp.data.network.GithubUsersDataSource
+import com.example.githubuserapp.data.response.DetailUsersResponse
+import com.example.githubuserapp.data.response.ItemsItem
 import com.example.githubuserapp.data.response.UsersResponse
 import com.example.githubuserapp.external.utils.LogUtils
 import com.example.githubuserapp.presentation.ui.activity.MainActivityViewState
@@ -13,6 +15,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 
 class GithubUsersRepositoryImpl(
   private val  dataSource: GithubUsersDataSource

@@ -8,6 +8,7 @@ package com.example.githubuserapp.presentation.ui.activity.detailuser
 import android.os.Bundle
 import com.example.githubuserapp.R
 import com.example.githubuserapp.core.BaseActivity
+import com.example.githubuserapp.data.response.ItemsItem
 import com.example.githubuserapp.databinding.ActivityDetailUserBinding
 import com.example.githubuserapp.presentation.ui.custom.NavigationView
 

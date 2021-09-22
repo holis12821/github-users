@@ -31,19 +31,21 @@
             android:text="@{data.login}"
             android:textSize="12sp"
             android:layout_marginTop="@dimen/space_xsmall"
+            android:maxLines="1"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toRightOf="@+id/ci_profile"
             app:textViewFontFamily="open-sans-regular"
             tools:text="Dummy Name"/>
 
         <com.example.githubuserapp.presentation.ui.custom.GithubTextView
-            android:id="@+id/tv_company"
+            android:id="@+id/tv_html_url"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="8dp"
             android:text="@{data.htmlUrl}"
             android:textSize="12sp"
+            android:maxLines="1"
             app:layout_constraintLeft_toRightOf="@+id/ci_profile"
             app:layout_constraintTop_toBottomOf="@+id/tv_username"
             app:textViewFontFamily="open-sans-regular"
@@ -55,9 +57,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="7dp"
-            android:text="@{data.location}"
+            android:text="@{data.eventsUrl}"
             android:textSize="12sp"
-            app:layout_constraintTop_toBottomOf="@+id/tv_company"
+            android:maxLines="1"
+            app:layout_constraintTop_toBottomOf="@+id/tv_html_url"
             app:layout_constraintLeft_toRightOf="@+id/ci_profile"
             tools:text="Dummy Location"/>
 

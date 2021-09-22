@@ -11,7 +11,7 @@ import org.koin.dsl.module
 
 val useCaseModule = module {
     single { GithubUsersUseCase(get()) }
-    single { DetailUsersUseCase(get()) }
-    single {  }
-    single {  }
+    //single { DetailUsersUseCase(get()) }
+    //single {  }
+    //single {  }
 }

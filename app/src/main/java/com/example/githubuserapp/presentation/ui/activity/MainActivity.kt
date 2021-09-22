@@ -72,10 +72,13 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         viewModel.isLoading.observe(this, { onLoading -> onProgress(onLoading) })
         viewModel.isError.observe(this, { isThrowable -> onShowMessage(isThrowable)})
         viewModel.onSuccess.observe(this, { usersResponse ->
-            if (usersResponse?.items?.filter { username -> username.login.isNullOrEmpty() }.isNullOrEmpty() ) {
+            if (usersResponse?.items.isNullOrEmpty() ) {
                 binding.rvListUsers.viewVisible = false
                 binding.layoutSearchNotFound.viewVisible = true
             } else {
+                binding.layoutSearchNotFound.viewVisible = false
+                binding.layoutNoInternet.viewVisible = false
+                binding.rvListUsers.viewVisible = true
                 adapter.setData(usersResponse?.items)
                 showPositiveToast(this) {"Showing ${usersResponse?.totalCount} data"}
             }
@@ -121,5 +124,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         showToastDanger(this) { message.message ?: "" }
         binding.rvListUsers.viewVisible = false
         binding.layoutNoInternet.viewVisible = true
+        binding.layoutSearchNotFound.viewVisible = false
     }
 }

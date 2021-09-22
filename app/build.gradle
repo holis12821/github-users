@@ -111,11 +111,4 @@ dependencies {
 
     // Utils
     implementation 'com.jakewharton.timber:timber:4.7.1'
-
-    /* lottie for animation */
-    implementation 'com.airbnb.android:lottie:3.0.7'
-
-    /* shimmer effect */
-    implementation 'com.facebook.shimmer:shimmer:0.5.0'
-
 }
