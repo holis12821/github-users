@@ -5,6 +5,7 @@
  * Last modified 15/09/21 13.00 PM by Nurholis*/
 package com.example.githubuserapp.presentation.ui.activity.detailuser
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import com.bumptech.glide.Glide
 import com.example.githubuserapp.R
@@ -12,6 +13,7 @@ import com.example.githubuserapp.core.BaseActivity
 import com.example.githubuserapp.data.response.DetailUsersResponse
 import com.example.githubuserapp.data.response.ItemsItem
 import com.example.githubuserapp.databinding.ActivityDetailUserBinding
+import com.example.githubuserapp.external.extension.viewVisible
 import com.example.githubuserapp.presentation.ui.custom.NavigationView
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -59,16 +61,18 @@ class DetailUserActivity: BaseActivity<ActivityDetailUserBinding>() {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private fun onSuccess(detailUsersResponse: DetailUsersResponse?) {
         //load image view Glide
         Glide.with(this)
             .load(detailUsersResponse?.avatarUrl)
             .into(binding.ciProfile)
         //bind value in the TextView
-        binding.tvUsername.text = detailUsersResponse?.login
-        binding.tvName.text = detailUsersResponse?.name
-        binding.tvLocation.text = detailUsersResponse?.location
-        binding.tvCompany.text = detailUsersResponse?.company
+        binding.tvUsername.text = "Username : ${detailUsersResponse?.login}"
+        binding.tvName.text = "Name : ${detailUsersResponse?.name}"
+        binding.tvLocation.text = "Location : ${detailUsersResponse?.location}"
+        binding.tvCompany.text = "Company : ${detailUsersResponse?.company}"
+
         binding.tvCalculateRepo.text = detailUsersResponse?.publicRepos.toString()
         binding.tvCalculateFollowers.text = detailUsersResponse?.followers.toString()
         binding.tvCalculateFollowing.text = detailUsersResponse?.following.toString()

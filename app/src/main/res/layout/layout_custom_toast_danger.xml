@@ -35,8 +35,8 @@
                 android:ellipsize="end"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_medium"
+                android:lines="1"
                 app:textViewFontFamily="open-sans-semi-bold"
-                tools:lines="1"
                 tools:text="@string/toast_txt_danger"/>
 
         </LinearLayout>

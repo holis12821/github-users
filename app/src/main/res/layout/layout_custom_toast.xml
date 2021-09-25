@@ -35,9 +35,9 @@
                android:textAlignment="center"
                android:textColor="@color/white"
                android:textSize="@dimen/text_medium"
+               android:lines="1"
                app:textViewFontFamily="open-sans-semi-bold"
-               tools:text="@string/toast_txt"
-               tools:lines="1"/>
+               tools:text="@string/toast_txt"/>
 
        </LinearLayout>
 

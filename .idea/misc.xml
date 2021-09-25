@@ -17,12 +17,12 @@
         <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/drawable/ic_no_internet.xml" value="0.176" />
         <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/drawable/ic_search_not_found.xml" value="0.202734375" />
         <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/font/font.xml" value="0.14722222222222223" />
-        <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/activity_detail_user.xml" value="0.264" />
+        <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/activity_detail_user.xml" value="0.1423611111111111" />
         <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/activity_main.xml" value="0.16799999999999998" />
         <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/activity_splash_screen.xml" value="0.20108695652173914" />
         <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/coba_button.xml" value="0.18442622950819673" />
         <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/github_progress_dialog.xml" value="0.1" />
-        <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/item_user_list.xml" value="0.264" />
+        <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/item_user_list.xml" value="0.176" />
         <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/layout_custom_toast.xml" value="0.176" />
         <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/layout_custom_toast_danger.xml" value="0.190625" />
         <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/layout_empty_data.xml" value="0.2" />

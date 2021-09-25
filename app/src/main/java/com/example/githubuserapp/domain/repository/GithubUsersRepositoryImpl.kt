@@ -24,8 +24,8 @@ class GithubUsersRepositoryImpl(
         return flow {
             try {
                 val data = dataSource.getSearchUsers(query = query)
+                delay(3000)
                 emit(MainActivityViewState.Success(data = data))
-                delay(4000)
             } catch (e: Throwable) {
                 emit(MainActivityViewState.Error(e))
                 LogUtils.print(e)
@@ -37,8 +37,8 @@ class GithubUsersRepositoryImpl(
         return flow {
             try {
                 val data = dataSource.getDetailUsers(username = username)
+                delay(3000)
                 emit(MainActivityViewState.Success(data = data))
-                delay(4000)
             } catch (e: Throwable) {
                 emit(MainActivityViewState.Error(e))
                 LogUtils.print(e)
@@ -50,8 +50,8 @@ class GithubUsersRepositoryImpl(
         return flow {
             try {
                 val data = dataSource.getFollowers(username = username)
+                delay(3000)
                 emit(MainActivityViewState.Success(data = data))
-                delay(4000)
             } catch (e: Throwable) {
                 emit(MainActivityViewState.Error(e))
                 LogUtils.print(e)
@@ -63,8 +63,8 @@ class GithubUsersRepositoryImpl(
         return flow {
             try {
                 val data = dataSource.getFollowing(username = username)
+                delay(3000)
                 emit(MainActivityViewState.Success(data = data))
-                delay(4000)
             } catch (e: Throwable) {
                 emit(MainActivityViewState.Error(e))
                 LogUtils.print(e)

@@ -5,6 +5,15 @@
  * Last modified 15/09/21 13.00 PM by Nurholis*/
 package com.example.githubuserapp.external.constant
 
+import androidx.annotation.StringRes
+import com.example.githubuserapp.R
+
 const val networkConnectTimeOut = 30L
 const val networkWriteTimeout = 30L
 const val networkReadTimeOut = 30L
+
+@StringRes
+val TAB_TITLES_FRAGMENT = intArrayOf(
+    R.string.followers,
+    R.string.Following
+)
