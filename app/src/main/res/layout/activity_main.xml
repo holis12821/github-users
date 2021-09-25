@@ -86,5 +86,16 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
+        <include
+            android:id="@+id/layout_empty_data"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            layout="@layout/layout_empty_data"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@+id/container_search"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

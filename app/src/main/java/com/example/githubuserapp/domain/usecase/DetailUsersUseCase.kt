@@ -5,8 +5,13 @@
  * Last modified 17/09/21 12:37 PM by Nurholis*/
 package com.example.githubuserapp.domain.usecase
 
+import com.example.githubuserapp.data.response.DetailUsersResponse
 import com.example.githubuserapp.domain.repository.GithubUsersRepository
+import com.example.githubuserapp.presentation.ui.activity.MainActivityViewState
+import kotlinx.coroutines.flow.Flow
 
 class DetailUsersUseCase(private val repository: GithubUsersRepository) {
-
+    suspend operator fun invoke(username: String?): Flow<MainActivityViewState<DetailUsersResponse>> {
+        return repository.getDetailUsers(username = username)
+    }
 }

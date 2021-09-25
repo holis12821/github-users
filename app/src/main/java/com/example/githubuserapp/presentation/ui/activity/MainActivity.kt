@@ -12,6 +12,7 @@ import android.view.View
 import com.example.githubuserapp.R
 import com.example.githubuserapp.core.BaseActivity
 import com.example.githubuserapp.data.response.ItemsItem
+import com.example.githubuserapp.data.response.UsersResponse
 import com.example.githubuserapp.databinding.ActivityMainBinding
 import com.example.githubuserapp.external.extension.*
 import com.example.githubuserapp.presentation.ui.activity.detailuser.DetailUserActivity
@@ -39,7 +40,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             override fun onViewClickCallback(view: View, data: ItemsItem?) {
 
             }
-
         }
     }
 
@@ -66,23 +66,13 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
         setDataUsers()
 
+        binding.layoutEmptyData.viewVisible = true
     }
 
     private fun onObserver() {
         viewModel.isLoading.observe(this, { onLoading -> onProgress(onLoading) })
-        viewModel.isError.observe(this, { isThrowable -> onShowMessage(isThrowable)})
-        viewModel.onSuccess.observe(this, { usersResponse ->
-            if (usersResponse?.items.isNullOrEmpty() ) {
-                binding.rvListUsers.viewVisible = false
-                binding.layoutSearchNotFound.viewVisible = true
-            } else {
-                binding.layoutSearchNotFound.viewVisible = false
-                binding.layoutNoInternet.viewVisible = false
-                binding.rvListUsers.viewVisible = true
-                adapter.setData(usersResponse?.items)
-                showPositiveToast(this) {"Showing ${usersResponse?.totalCount} data"}
-            }
-        })
+        viewModel.onError.observe(this, { isThrowable -> onShowMessage(isThrowable)})
+        viewModel.onSuccess.observe(this, { usersResponse -> onSuccess(usersResponse)})
     }
 
     private fun setUpNavigationView(){
@@ -91,6 +81,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             .setupNavIcon(R.drawable.ic_baseline_settings_24)
             .setNavigation {
                 //set up localization
+
             }
     }
 
@@ -117,6 +108,20 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             showDialogProgress()
         } else {
             hideProgress()
+        }
+    }
+
+    private fun onSuccess(usersResponse: UsersResponse?) {
+        if (usersResponse?.items.isNullOrEmpty() ) {
+            binding.rvListUsers.viewVisible = false
+            binding.layoutSearchNotFound.viewVisible = true
+        } else {
+            binding.layoutSearchNotFound.viewVisible = false
+            binding.layoutNoInternet.viewVisible = false
+            binding.layoutEmptyData.viewVisible = false
+            binding.rvListUsers.viewVisible = true
+            adapter.setData(usersResponse?.items)
+            showPositiveToast(this) {"Showing ${usersResponse?.totalCount} data"}
         }
     }
 

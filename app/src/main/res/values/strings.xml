@@ -1,5 +1,7 @@
 <resources>
     <string name="txt_profile">Profile Users</string>
+    <string name="detail_users">Detail Users</string>
+
     <string name="toast_txt">Berhasil terkoneksi oleh server</string>
     <string name="toast_txt_danger">Gagal terhubung ke server</string>
     <string name="search">Search</string>
@@ -9,4 +11,6 @@
     <string name="txt_title_content">Mohon maaf atas ketidaknyamanan ini, terima kasih.</string>
     <string name="txt_no_search_found_title">Maaf, sepertinya apa yang Anda cari tidak ada dalam database sistem kami.</string>
     <string name="txt_title_search_not_found">Pastikan apa yang Anda masukan sesuai, terima kasih!.</string>
+    <string name="txt_title_empty_data">Sepertinya data masih kosong</string>
+    <string name="txt_content_empty_data">Coba lakukan pencarian data.</string>
 </resources>

@@ -22,8 +22,8 @@ class MainViewModel(
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> get() = _isLoading
 
-    private val _isError = MutableLiveData<Throwable>()
-    val isError: LiveData<Throwable> get() = _isError
+    private val _onError = MutableLiveData<Throwable>()
+    val onError: LiveData<Throwable> get() = _onError
 
    private val _onSuccess = MutableLiveData<UsersResponse?>()
    val onSuccess: LiveData<UsersResponse?> get() = _onSuccess
@@ -42,7 +42,7 @@ class MainViewModel(
                            _onSuccess.value = it.data
                        }
                        is MainActivityViewState.Error -> {
-                           _isError.value = it.throwable
+                           _onError.value = it.throwable
                        }
                    }
                }
