@@ -38,10 +38,10 @@ class MainViewModel(
                }
                .collect {
                    when(it) {
-                       is MainActivityViewState.Success -> {
+                       is MainViewState.Success -> {
                            _onSuccess.value = it.data
                        }
-                       is MainActivityViewState.Error -> {
+                       is MainViewState.Error -> {
                            _onError.value = it.throwable
                        }
                    }

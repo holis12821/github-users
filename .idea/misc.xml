@@ -21,13 +21,16 @@
         <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/activity_main.xml" value="0.16799999999999998" />
         <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/activity_splash_screen.xml" value="0.20108695652173914" />
         <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/coba_button.xml" value="0.18442622950819673" />
+        <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/fragment_followers.xml" value="0.136" />
+        <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/fragment_following.xml" value="0.17896174863387979" />
         <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/github_progress_dialog.xml" value="0.1" />
         <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/item_user_list.xml" value="0.176" />
         <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/layout_custom_toast.xml" value="0.176" />
         <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/layout_custom_toast_danger.xml" value="0.190625" />
         <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/layout_empty_data.xml" value="0.2" />
+        <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/layout_empty_data_no_internet.xml" value="0.190625" />
         <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/layout_no_internet.xml" value="0.16" />
-        <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/layout_search_not_found.xml" value="0.12" />
+        <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/layout_search_not_found.xml" value="0.176" />
         <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/layout_seller.xml" value="0.2" />
         <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/layout_specification.xml" value="0.19618055555555555" />
         <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/learning_constraint_layout.xml" value="0.1" />

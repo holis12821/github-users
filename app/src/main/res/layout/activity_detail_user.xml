@@ -178,7 +178,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_small"
-            app:tabTextColor="@color/white"
+            app:tabTextColor="@color/black"
             app:tabSelectedTextColor="@color/black"
             app:layout_constraintTop_toBottomOf="@+id/tv_location"
             app:layout_constraintLeft_toLeftOf="parent"

@@ -63,8 +63,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             }
             return@setOnKeyListener false
         }
-
-        setDataUsers()
+        //setUp Adapter
+        setAdapter()
 
         binding.layoutEmptyData.viewVisible = true
     }
@@ -85,7 +85,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             }
     }
 
-    private fun setDataUsers() {
+    private fun setAdapter() {
         //set LayoutManager that this recyclerView will use
         binding.rvListUsers.setUpVerticalLayoutManager()
         binding.rvListUsers.adapter = adapter
@@ -127,8 +127,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     private fun onShowMessage(message: Throwable) {
         showToastDanger(this) { message.message ?: "" }
-        binding.rvListUsers.viewVisible = false
         binding.layoutNoInternet.viewVisible = true
+        binding.rvListUsers.viewVisible = false
         binding.layoutSearchNotFound.viewVisible = false
+        binding.layoutEmptyData.viewVisible = false
     }
 }

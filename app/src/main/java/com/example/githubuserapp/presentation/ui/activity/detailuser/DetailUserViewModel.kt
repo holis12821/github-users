@@ -11,7 +11,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.githubuserapp.data.response.DetailUsersResponse
 import com.example.githubuserapp.domain.usecase.DetailUsersUseCase
-import com.example.githubuserapp.presentation.ui.activity.MainActivityViewState
+import com.example.githubuserapp.presentation.ui.activity.MainViewState
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onStart
@@ -39,10 +39,10 @@ class DetailUserViewModel(
                     _isLoading.value = false
                 }.collect {
                     when(it) {
-                        is MainActivityViewState.Success -> {
+                        is MainViewState.Success -> {
                             _onSuccess.value = it.data
                         }
-                        is MainActivityViewState.Error -> {
+                        is MainViewState.Error -> {
                             _onError.value = it.throwable
                         }
                     }

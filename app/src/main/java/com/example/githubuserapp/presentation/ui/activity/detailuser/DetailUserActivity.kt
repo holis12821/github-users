@@ -13,8 +13,11 @@ import com.example.githubuserapp.core.BaseActivity
 import com.example.githubuserapp.data.response.DetailUsersResponse
 import com.example.githubuserapp.data.response.ItemsItem
 import com.example.githubuserapp.databinding.ActivityDetailUserBinding
+import com.example.githubuserapp.external.constant.TAB_TITLES_FRAGMENT
 import com.example.githubuserapp.external.extension.viewVisible
+import com.example.githubuserapp.presentation.ui.adapter.ViewPagerAdapter
 import com.example.githubuserapp.presentation.ui.custom.NavigationView
+import com.google.android.material.tabs.TabLayoutMediator
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class DetailUserActivity: BaseActivity<ActivityDetailUserBinding>() {
@@ -22,6 +25,8 @@ class DetailUserActivity: BaseActivity<ActivityDetailUserBinding>() {
     private val viewModel by viewModel<DetailUserViewModel>()
 
     private lateinit var navigationView: NavigationView
+    private lateinit var viewPagerAdapter: ViewPagerAdapter
+    private lateinit var bundle: Bundle
 
     override fun getResLayoutId(): Int = R.layout.activity_detail_user
 
@@ -32,17 +37,26 @@ class DetailUserActivity: BaseActivity<ActivityDetailUserBinding>() {
 
     private fun initView() {
         setUpNavigationView()
+        //setUp Adapter to handle ViewPager2
+        setUpAdapterViewPager()
+        //get data from previous activity
         val getUsersExtra = intent.getParcelableExtra<ItemsItem>(KEY_EXTRA_USERS) as ItemsItem
+        //send data to fragment followers and following
+        bundle = Bundle()
+        bundle.putString(KEY_EXTRA_USERS, getUsersExtra.login)
         getUsersExtra.login?.let {
             viewModel.getDetailUsers(it)
         }
     }
 
-    private fun onObserver() {
-        viewModel.isLoading.observe(this, { onLoading -> onProgress(onLoading)} )
-        viewModel.onError.observe(this, {onError -> onShowMessage(onError)} )
-        viewModel.onSuccess.observe(this, { onSuccess -> onSuccess(onSuccess)} )
-
+    private fun setUpAdapterViewPager() {
+        viewPagerAdapter = ViewPagerAdapter(this, bundle)
+        with(binding) {
+            viewPager.adapter = viewPagerAdapter
+            TabLayoutMediator(tabsLayout, viewPager) {tabsLayout, position ->
+                tabsLayout.text = resources.getString(TAB_TITLES_FRAGMENT[position])
+            }.attach()
+        }
     }
 
     private fun setUpNavigationView() {
@@ -51,6 +65,13 @@ class DetailUserActivity: BaseActivity<ActivityDetailUserBinding>() {
             .setNavigation {
                 onBackPressed()
             }
+    }
+
+    private fun onObserver() {
+        viewModel.isLoading.observe(this, { onLoading -> onProgress(onLoading)} )
+        viewModel.onError.observe(this, {onError -> onShowMessage(onError)} )
+        viewModel.onSuccess.observe(this, { onSuccess -> onSuccess(onSuccess)} )
+
     }
 
     private fun onProgress(loading: Boolean) {
@@ -63,19 +84,23 @@ class DetailUserActivity: BaseActivity<ActivityDetailUserBinding>() {
 
     @SuppressLint("SetTextI18n")
     private fun onSuccess(detailUsersResponse: DetailUsersResponse?) {
-        //load image view Glide
-        Glide.with(this)
-            .load(detailUsersResponse?.avatarUrl)
-            .into(binding.ciProfile)
-        //bind value in the TextView
-        binding.tvUsername.text = "Username : ${detailUsersResponse?.login}"
-        binding.tvName.text = "Name : ${detailUsersResponse?.name}"
-        binding.tvLocation.text = "Location : ${detailUsersResponse?.location}"
-        binding.tvCompany.text = "Company : ${detailUsersResponse?.company}"
 
-        binding.tvCalculateRepo.text = detailUsersResponse?.publicRepos.toString()
-        binding.tvCalculateFollowers.text = detailUsersResponse?.followers.toString()
-        binding.tvCalculateFollowing.text = detailUsersResponse?.following.toString()
+        //binding data to view
+        with(binding) {
+            //load image view Glide
+            Glide.with(this@DetailUserActivity)
+                .load(detailUsersResponse?.avatarUrl)
+                .into(ciProfile)
+            tvUsername.text = "Username : ${detailUsersResponse?.login ?: "-"}"
+            tvName.text = "Name : ${detailUsersResponse?.name ?: "-"}"
+            tvLocation.text = "Location : ${detailUsersResponse?.location ?: "-"}"
+            tvCompany.text = "Company : ${detailUsersResponse?.company ?: "-"}"
+
+            tvCalculateRepo.text = detailUsersResponse?.publicRepos.toString()
+            tvCalculateFollowers.text = detailUsersResponse?.followers.toString()
+            tvCalculateFollowing.text = detailUsersResponse?.following.toString()
+        }
+
     }
 
     private fun onShowMessage(message: Throwable) {

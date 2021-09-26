@@ -10,7 +10,7 @@ package com.example.githubuserapp.presentation.ui.activity
  * @Sealed support developers to maintain data types of predefined types.
  * To create closed class, we need to use the command "sealed" as a modifier for the class
  * */
-sealed class MainActivityViewState<out R> {
-    data class Success<out T>(val data: T): MainActivityViewState<T>()
-    data class Error(val throwable: Throwable): MainActivityViewState<Nothing>()
+sealed class MainViewState<out R> {
+    data class Success<out T>(val data: T): MainViewState<T>()
+    data class Error(val throwable: Throwable): MainViewState<Nothing>()
 }

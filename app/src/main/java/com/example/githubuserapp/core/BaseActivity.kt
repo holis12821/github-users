@@ -38,7 +38,7 @@ abstract class BaseActivity<B : ViewDataBinding>: AppCompatActivity() {
 
     /**
      * This variable is use for binding the view*/
-     lateinit var binding: B
+    protected lateinit var binding: B
 
     /**
      * This function is used for set the view layout

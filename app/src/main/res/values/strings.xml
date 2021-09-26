@@ -14,7 +14,8 @@
     <string name="txt_title_content">Mohon maaf atas ketidaknyamanan ini, terima kasih.</string>
     <string name="txt_no_search_found_title">Maaf, sepertinya apa yang Anda cari tidak ada dalam database sistem kami.</string>
     <string name="txt_title_search_not_found">Pastikan apa yang Anda masukan sesuai, terima kasih!.</string>
-    <string name="txt_title_empty_data">Sepertinya data masih kosong</string>
-    <string name="txt_content_empty_data">Coba lakukan pencarian data.</string>
+    <string name="txt_title_empty_data">Sepertinya data masih kosong atau</string>
+    <string name="txt_content_empty_data">Coba lakukan pencarian data</string>
+    <string name="txt_content_empty_data_no_internet">Periksa kembali koneksi internet anda, terimakasih.</string>
     <string name="txt_info_user_black">Data user tidak lengkap</string>
 </resources>
