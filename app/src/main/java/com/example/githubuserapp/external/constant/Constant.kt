@@ -7,7 +7,7 @@ package com.example.githubuserapp.external.constant
 
 import androidx.annotation.StringRes
 import com.example.githubuserapp.R
-
+//constant to handle time connection to request
 const val networkConnectTimeOut = 30L
 const val networkWriteTimeout = 30L
 const val networkReadTimeOut = 30L

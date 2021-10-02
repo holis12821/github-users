@@ -14,7 +14,6 @@ import com.example.githubuserapp.data.response.DetailUsersResponse
 import com.example.githubuserapp.data.response.ItemsItem
 import com.example.githubuserapp.databinding.ActivityDetailUserBinding
 import com.example.githubuserapp.external.constant.TAB_TITLES_FRAGMENT
-import com.example.githubuserapp.external.extension.viewVisible
 import com.example.githubuserapp.presentation.ui.adapter.ViewPagerAdapter
 import com.example.githubuserapp.presentation.ui.custom.NavigationView
 import com.google.android.material.tabs.TabLayoutMediator
@@ -26,7 +25,7 @@ class DetailUserActivity: BaseActivity<ActivityDetailUserBinding>() {
 
     private lateinit var navigationView: NavigationView
     private lateinit var viewPagerAdapter: ViewPagerAdapter
-    private lateinit var bundle: Bundle
+    private var bundle: Bundle? = null
 
     override fun getResLayoutId(): Int = R.layout.activity_detail_user
 
@@ -41,16 +40,15 @@ class DetailUserActivity: BaseActivity<ActivityDetailUserBinding>() {
         setUpAdapterViewPager()
         //get data from previous activity
         val getUsersExtra = intent.getParcelableExtra<ItemsItem>(KEY_EXTRA_USERS) as ItemsItem
-        //send data to fragment followers and following
-        bundle = Bundle()
-        bundle.putString(KEY_EXTRA_USERS, getUsersExtra.login)
         getUsersExtra.login?.let {
             viewModel.getDetailUsers(it)
         }
+        bundle = Bundle()
+        bundle?.putParcelable(KEY_EXTRA_USERS, getUsersExtra)
     }
 
     private fun setUpAdapterViewPager() {
-        viewPagerAdapter = ViewPagerAdapter(this, bundle)
+        viewPagerAdapter = ViewPagerAdapter(this, bundle = bundle)
         with(binding) {
             viewPager.adapter = viewPagerAdapter
             TabLayoutMediator(tabsLayout, viewPager) {tabsLayout, position ->

@@ -19,7 +19,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class FollowersFragments: BaseFragment<FragmentFollowersBinding>() {
     //init field on this class
     private val viewModel by viewModel<FollowersFragmentsViewModel>()
-    private lateinit var adapter: UsersAdapter
+    private val adapter =  UsersAdapter()
 
     override fun getResLayoutId(): Int = R.layout.fragment_followers
 
@@ -29,20 +29,19 @@ class FollowersFragments: BaseFragment<FragmentFollowersBinding>() {
     }
 
     private fun initView() {
-        val args = arguments?.getString(DetailUserActivity.KEY_EXTRA_USERS)
-        viewModel.getFollowers(args ?: "")
         setUpAdapter()
+        val username = arguments?.getParcelable<ItemsItem>(DetailUserActivity.KEY_EXTRA_USERS)
+        viewModel.getFollowers(username?.login ?: "")
     }
 
     private fun onObserver() {
         viewModel.isLoading.observe(viewLifecycleOwner, { onProgress -> onProgress(onProgress) })
         viewModel.onError.observe(viewLifecycleOwner, { onShowMessage -> onShowMessage(onShowMessage) })
-        viewModel.onSuccess.observe(viewLifecycleOwner, {onSuccess -> onSuccess(onSuccess ?: emptyList()) })
+        viewModel.onSuccess.observe(viewLifecycleOwner, {onSuccess -> onSuccess(onSuccess) })
     }
 
     private fun setUpAdapter() {
         //set LayoutManager that this recyclerView will use
-        adapter = UsersAdapter()
         binding?.rvList?.setUpVerticalLayoutManager()
         binding?.rvList?.adapter = adapter
         binding?.rvList?.setHasFixedSize(true)
@@ -64,7 +63,7 @@ class FollowersFragments: BaseFragment<FragmentFollowersBinding>() {
         binding?.rvList?.viewVisible = false
     }
 
-    private fun onSuccess(listUsers: List<ItemsItem>) {
+    private fun onSuccess(listUsers: List<ItemsItem>?) {
         if (listUsers.isNullOrEmpty()) {
             binding?.rvList?.viewGone = true
             binding?.layoutEmptyData?.viewVisible = true

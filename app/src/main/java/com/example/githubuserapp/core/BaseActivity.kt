@@ -57,7 +57,7 @@ abstract class BaseActivity<B : ViewDataBinding>: AppCompatActivity() {
      * This function is used for init all function some think like that
      * when activity is read to layout and next to call function
      * @onActivityCreated.
-     * There're have function for binding the view with data binding.
+     * There's have function for binding the view with data binding.
      * @onCreate this function will be executed when the layout
      * of the activity has been attach to the activity.
      * @lifeCycleOwner is an interface that shows that this class

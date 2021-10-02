@@ -51,7 +51,7 @@ abstract class BaseFragment<B : ViewDataBinding>: Fragment() {
 
     /**
      * This function is used for init all function when fragment is created.
-     * There're have function for binding the view with data binding.
+     * There's have function for binding the view with data binding.
      * @see onCreateView is a function when layout on fragment is attach
      * or if not attachment in the layout then it won't run the
      * @see onViewCreated function.

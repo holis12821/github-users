@@ -24,6 +24,7 @@
         <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/fragment_followers.xml" value="0.136" />
         <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/fragment_following.xml" value="0.17896174863387979" />
         <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/github_progress_dialog.xml" value="0.1" />
+        <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/item_follow_list.xml" value="0.18545081967213115" />
         <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/item_user_list.xml" value="0.176" />
         <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/layout_custom_toast.xml" value="0.176" />
         <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/layout_custom_toast_danger.xml" value="0.190625" />
