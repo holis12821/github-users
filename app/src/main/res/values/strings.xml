@@ -1,5 +1,5 @@
 <resources>
-    <string name="txt_profile">profile users</string>
+    <string name="txt_profile">Profile Users</string>
     <string name="detail_users">Detail Pengguna</string>
 
     <string name="followers">Followers</string>
