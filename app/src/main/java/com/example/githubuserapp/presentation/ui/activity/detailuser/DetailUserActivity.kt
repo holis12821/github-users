@@ -13,6 +13,7 @@ import com.example.githubuserapp.core.BaseActivity
 import com.example.githubuserapp.data.response.DetailUsersResponse
 import com.example.githubuserapp.data.response.ItemsItem
 import com.example.githubuserapp.databinding.ActivityDetailUserBinding
+import com.example.githubuserapp.external.constant.KEY_EXTRA_USERS
 import com.example.githubuserapp.external.constant.TAB_TITLES_FRAGMENT
 import com.example.githubuserapp.presentation.ui.adapter.ViewPagerAdapter
 import com.example.githubuserapp.presentation.ui.custom.NavigationView
@@ -25,7 +26,6 @@ class DetailUserActivity: BaseActivity<ActivityDetailUserBinding>() {
 
     private lateinit var navigationView: NavigationView
     private lateinit var viewPagerAdapter: ViewPagerAdapter
-    private var bundle: Bundle? = null
 
     override fun getResLayoutId(): Int = R.layout.activity_detail_user
 
@@ -35,20 +35,20 @@ class DetailUserActivity: BaseActivity<ActivityDetailUserBinding>() {
     }
 
     private fun initView() {
-        setUpNavigationView()
-        //setUp Adapter to handle ViewPager2
-        setUpAdapterViewPager()
         //get data from previous activity
         val getUsersExtra = intent.getParcelableExtra<ItemsItem>(KEY_EXTRA_USERS) as ItemsItem
         getUsersExtra.login?.let {
             viewModel.getDetailUsers(it)
         }
-        bundle = Bundle()
-        bundle?.putParcelable(KEY_EXTRA_USERS, getUsersExtra)
+        val mBundle = Bundle()
+        mBundle.putParcelable(KEY_EXTRA_USERS, getUsersExtra)
+        setUpNavigationView()
+        //setUp Adapter to handle ViewPager2
+        setUpAdapterViewPager(mBundle)
     }
 
-    private fun setUpAdapterViewPager() {
-        viewPagerAdapter = ViewPagerAdapter(this, bundle = bundle)
+    private fun setUpAdapterViewPager(mBundle: Bundle) {
+        viewPagerAdapter = ViewPagerAdapter(this, mBundle = mBundle)
         with(binding) {
             viewPager.adapter = viewPagerAdapter
             TabLayoutMediator(tabsLayout, viewPager) {tabsLayout, position ->
@@ -104,9 +104,5 @@ class DetailUserActivity: BaseActivity<ActivityDetailUserBinding>() {
     private fun onShowMessage(message: Throwable) {
         showToastDanger(this) { message.message ?: ""}
 
-    }
-
-    companion object {
-        const val KEY_EXTRA_USERS = "extra_users"
     }
 }

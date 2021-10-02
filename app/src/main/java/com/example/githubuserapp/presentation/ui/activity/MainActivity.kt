@@ -14,6 +14,7 @@ import com.example.githubuserapp.core.BaseActivity
 import com.example.githubuserapp.data.response.ItemsItem
 import com.example.githubuserapp.data.response.UsersResponse
 import com.example.githubuserapp.databinding.ActivityMainBinding
+import com.example.githubuserapp.external.constant.KEY_EXTRA_USERS
 import com.example.githubuserapp.external.extension.*
 import com.example.githubuserapp.presentation.ui.activity.detailuser.DetailUserActivity
 import com.example.githubuserapp.presentation.ui.adapter.AdapterClickListener
@@ -33,7 +34,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         listener = object : AdapterClickListener<ItemsItem?> {
             override fun onItemClickCallback(data: ItemsItem?) {
                 val intent = Intent(this@MainActivity, DetailUserActivity::class.java)
-                intent.putExtra(DetailUserActivity.KEY_EXTRA_USERS, data)
+                intent.putExtra(KEY_EXTRA_USERS, data)
                 startActivity(intent)
             }
 

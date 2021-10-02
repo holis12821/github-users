@@ -18,7 +18,7 @@ import com.example.githubuserapp.databinding.ItemUserListBinding
 class UsersAdapter:
     RecyclerView.Adapter<UsersAdapter.UsersViewHolder>() {
 
-    private val list = ArrayList<ItemsItem>()
+    private val list = mutableListOf<ItemsItem>()
 
     lateinit var listener: AdapterClickListener<ItemsItem?>
 
