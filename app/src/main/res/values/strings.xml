@@ -2,8 +2,9 @@
     <string name="txt_profile">Profile Users</string>
     <string name="detail_users">Detail Pengguna</string>
 
-    <string name="followers">Followers</string>
+    <string name="Followers">Followers</string>
     <string name="Following">Following</string>
+    <string name="Repository">Repository</string>
 
     <string name="toast_txt">Berhasil terkoneksi oleh server</string>
     <string name="toast_txt_danger">Gagal terhubung ke server</string>

@@ -17,6 +17,6 @@ const val KEY_EXTRA_USERS = "extra_users"
 
 @StringRes
 val TAB_TITLES_FRAGMENT = intArrayOf(
-    R.string.followers,
+    R.string.Followers,
     R.string.Following
 )

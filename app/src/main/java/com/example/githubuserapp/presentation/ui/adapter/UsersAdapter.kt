@@ -27,10 +27,6 @@ class UsersAdapter:
     ): RecyclerView.ViewHolder(binding.root) {
         fun bind(data: ItemsItem?) {
             binding.data = data
-            //add circle image view in glide to load image in drawable resource id
-            Glide.with(itemView.context)
-                .load(data?.avatarUrl)
-                .into(binding.ciProfile)
             itemView.setOnClickListener {
                 listener.onItemClickCallback(data = data)
             }

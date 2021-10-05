@@ -24,13 +24,6 @@ class AdapterFollow: RecyclerView.Adapter<AdapterFollow.FollowViewHolder>() {
    ): RecyclerView.ViewHolder(binding.root) {
        fun bind(data: ItemsItem?) {
            binding.data = data
-           /**
-            * add circle imageView in glide to load image
-            * in drawable resource with id
-            * */
-           Glide.with(itemView.context)
-               .load(data?.avatarUrl)
-               .into(binding.ciProfile)
        }
    }
 
