@@ -7,10 +7,7 @@ package com.example.githubuserapp.core
 
 import androidx.multidex.MultiDex
 import androidx.multidex.MultiDexApplication
-import com.example.githubuserapp.di.networkModule
-import com.example.githubuserapp.di.repositoryModule
-import com.example.githubuserapp.di.useCaseModule
-import com.example.githubuserapp.di.viewModelModule
+import com.example.githubuserapp.di.*
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -39,7 +36,8 @@ class GithubUsersApps: MultiDexApplication() {
                 networkModule,
                 repositoryModule,
                 useCaseModule,
-                viewModelModule
+                viewModelModule,
+                preferencesModule
             )
         }
     }

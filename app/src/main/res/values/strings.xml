@@ -19,4 +19,10 @@
     <string name="txt_content_empty_data">Coba lakukan pencarian data</string>
     <string name="txt_content_empty_data_no_internet">Periksa kembali koneksi internet anda, terimakasih.</string>
     <string name="txt_info_user_black">Data user tidak lengkap</string>
+    <string name="key_dark_mode">dark mode</string>
+    <string name="nothing">Tidak</string>
+    <string name="name"></string>
+    <string name="dark_mode">Mengatur Tema terang dan gelap</string>
+    <string name="txt_change_ui_theme">Merubah Pengaturan tema aplikasi</string>
+    <string name="settings">Settings</string>
 </resources>

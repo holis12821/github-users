@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.githubuserapp.external.constant.TAB_TITLES_FRAGMENT
-import com.example.githubuserapp.presentation.ui.activity.detailuser.DetailUserActivity
 import com.example.githubuserapp.presentation.ui.fragment.followers.FollowersFragments
 import com.example.githubuserapp.presentation.ui.fragment.following.FollowingFragments
 

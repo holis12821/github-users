@@ -5,12 +5,10 @@
  * Last modified 02/10/21 11:22 PM by Nurholis*/
 package com.example.githubuserapp.presentation.ui.adapter
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.githubuserapp.R
 import com.example.githubuserapp.data.response.ItemsItem
 import com.example.githubuserapp.databinding.ItemViewFollowBinding
@@ -27,7 +25,6 @@ class AdapterFollow: RecyclerView.Adapter<AdapterFollow.FollowViewHolder>() {
        }
    }
 
-    @SuppressLint("NotifyDataSetChanged")
     fun setData(list: List<ItemsItem>?) {
         this.list.clear()
         if (!list.isNullOrEmpty()) {

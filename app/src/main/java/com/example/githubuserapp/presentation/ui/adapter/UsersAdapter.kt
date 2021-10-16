@@ -5,12 +5,10 @@
  * Last modified 15/09/21 01:00 PM by Nurholis*/
 package com.example.githubuserapp.presentation.ui.adapter
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.githubuserapp.R
 import com.example.githubuserapp.data.response.ItemsItem
 import com.example.githubuserapp.databinding.ItemUserListBinding
@@ -18,7 +16,7 @@ import com.example.githubuserapp.databinding.ItemUserListBinding
 class UsersAdapter:
     RecyclerView.Adapter<UsersAdapter.UsersViewHolder>() {
 
-    private val list = mutableListOf<ItemsItem>()
+     val list = mutableListOf<ItemsItem>()
 
     lateinit var listener: AdapterClickListener<ItemsItem?>
 
@@ -30,10 +28,13 @@ class UsersAdapter:
             itemView.setOnClickListener {
                 listener.onItemClickCallback(data = data)
             }
+            binding.btnAddFavorite.setOnClickListener {
+                listener.onViewClickCallback(it, data)
+            }
         }
     }
 
-    @SuppressLint("NotifyDataSetChanged")
+
     fun setData(list: List<ItemsItem>?) {
         this.list.clear()
         if (!list.isNullOrEmpty()) {

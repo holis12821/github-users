@@ -35,6 +35,7 @@ class DetailUserActivity: BaseActivity<ActivityDetailUserBinding>() {
     }
 
     private fun initView() {
+        binding.viewModel = viewModel
         //get data from previous activity
         val getUsersExtra = intent.getParcelableExtra<ItemsItem>(KEY_EXTRA_USERS) as ItemsItem
         getUsersExtra.login?.let {

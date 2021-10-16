@@ -6,10 +6,7 @@
 package com.example.githubuserapp.presentation.ui.activity.splashscreen
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import androidx.databinding.DataBindingUtil
 import com.example.githubuserapp.R
 import com.example.githubuserapp.core.BaseActivity
 import com.example.githubuserapp.databinding.ActivitySplashScreenBinding

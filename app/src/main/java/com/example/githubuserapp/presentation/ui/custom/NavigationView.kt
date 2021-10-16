@@ -20,7 +20,23 @@ class NavigationView (activity: Activity, var view: View? = null) {
     }
 
     fun setupNavIcon(icon: Int): NavigationView {
-        val navigationBackIcon = view?.findViewById<AppCompatImageView?>(R.id.navigation_back)
+        val navigationSettingsIcon = view?.findViewById<AppCompatImageView?>(R.id.icon_settings)
+        navigationSettingsIcon?.apply {
+            setImageResource(icon)
+        }
+        return this
+    }
+
+    fun setNavMoreIcon(icon: Int): NavigationView {
+        val navigationFavIcon = view?.findViewById<AppCompatImageView>(R.id.icon_favorite)
+        navigationFavIcon?.apply {
+            setImageResource(icon)
+        }
+        return this
+    }
+
+    fun setOnBackPressedIcon(icon: Int): NavigationView {
+        val navigationBackIcon = view?.findViewById<AppCompatImageView>(R.id.navigation_back)
         navigationBackIcon?.apply {
             setImageResource(icon)
         }
@@ -38,8 +54,16 @@ class NavigationView (activity: Activity, var view: View? = null) {
 
     fun setNavigation(callback: (View) -> Unit): NavigationView {
         val navigationCallBack = view?.findViewById<AppCompatImageView>(R.id.navigation_back)
-        navigationCallBack?.setOnClickListener {
-            callback.invoke(it)
+        val navigationIconSettings = view?.findViewById<AppCompatImageView>(R.id.icon_settings)
+        val navigationIconFav = view?.findViewById<AppCompatImageView>(R.id.icon_favorite)
+        navigationCallBack?.setOnClickListener { navCallBack ->
+            callback.invoke(navCallBack)
+        }
+        navigationIconSettings?.setOnClickListener { settingsCallBack ->
+            callback.invoke(settingsCallBack)
+        }
+        navigationIconFav?.setOnClickListener { settingsFavCallBack ->
+            callback.invoke(settingsFavCallBack)
         }
         return this
     }

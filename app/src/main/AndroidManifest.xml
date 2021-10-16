@@ -21,6 +21,9 @@
             android:name="com.example.githubuserapp.presentation.ui.activity.detailuser.DetailUserActivity"
             android:exported="true" />
         <activity
+            android:name="com.example.githubuserapp.presentation.ui.activity.settings.SettingsActivity"
+            android:exported="true" />
+        <activity
             android:name="com.example.githubuserapp.presentation.ui.activity.splashscreen.SplashScreenActivity"
             android:exported="true">
             <intent-filter>

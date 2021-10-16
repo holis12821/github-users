@@ -19,19 +19,28 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_editor_absoluteY="@dimen/text_medium_large"
         app:textViewFontFamily="open-sans-regular"
         tools:text="Navigation Title"/>
-
     <ImageView
         android:id="@+id/icon_settings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_settings_24"
+        android:layout_marginTop="@dimen/space_xmedium"
+        android:layout_marginEnd="@dimen/space_medium_large"
+        app:layout_constraintEnd_toStartOf="@id/icon_favorite"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/ic_baseline_settings_24"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/icon_favorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/space_xmedium"
         android:layout_marginEnd="@dimen/space_medium_large"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/ic_baseline_favorite_24_white"
+        />
 
     <View
         android:layout_width="match_parent"

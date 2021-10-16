@@ -32,7 +32,7 @@
             android:text="@{data.login}"
             android:textSize="@dimen/text_small_medium"
             android:layout_marginTop="@dimen/space_xsmall"
-            android:lines="1"
+            android:maxLines="1"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toRightOf="@+id/ci_profile"
             app:textViewFontFamily="open-sans-regular"
@@ -46,11 +46,20 @@
             android:layout_marginTop="8dp"
             android:text="@{data.htmlUrl}"
             android:textSize="@dimen/text_small_medium"
-            android:lines="1"
+            android:maxLines="1"
+            android:ellipsize="end"
             app:layout_constraintLeft_toRightOf="@+id/ci_profile"
             app:layout_constraintTop_toBottomOf="@+id/tv_username"
             app:textViewFontFamily="open-sans-regular"
             tools:text="Dummy Company"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btn_add_favorite"
+            android:layout_width="@dimen/space_super_large"
+            android:layout_height="@dimen/space_super_large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_baseline_favorite_24_dark_grey"/>
 
         <com.example.githubuserapp.presentation.ui.custom.GithubTextView
             android:id="@+id/tv_location"
@@ -60,7 +69,8 @@
             android:layout_marginTop="7dp"
             android:text="@{data.eventsUrl}"
             android:textSize="@dimen/text_small_medium"
-            android:lines="1"
+            android:maxLines="1"
+            android:ellipsize="end"
             app:layout_constraintTop_toBottomOf="@+id/tv_html_url"
             app:layout_constraintLeft_toRightOf="@+id/ci_profile"
             tools:text="Dummy Location"/>

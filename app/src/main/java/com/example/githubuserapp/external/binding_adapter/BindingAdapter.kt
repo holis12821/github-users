@@ -1,4 +1,4 @@
-package com.example.githubuserapp.external.bindingadapter
+package com.example.githubuserapp.external.binding_adapter
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter

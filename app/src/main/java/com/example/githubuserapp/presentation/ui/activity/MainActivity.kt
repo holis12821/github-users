@@ -9,6 +9,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.View
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.githubuserapp.R
 import com.example.githubuserapp.core.BaseActivity
 import com.example.githubuserapp.data.response.ItemsItem
@@ -28,6 +29,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     //initialization view
     private lateinit var navigationView: NavigationView
 
+    private lateinit var query: String
+
     override fun getResLayoutId(): Int = R.layout.activity_main
 
    private val  adapter = UsersAdapter().apply {
@@ -39,7 +42,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             }
 
             override fun onViewClickCallback(view: View, data: ItemsItem?) {
+                when(view.id) {
+                    R.id.btn_add_favorite -> {
+                        //add to local database
 
+                    }
+                }
             }
         }
     }
@@ -50,6 +58,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     }
 
     private fun initView() {
+        //init viewModel and data binding
+        binding.viewModel = viewModel
+
         setUpNavigationView()
 
         binding.btnSearch.setOnClickListener {
@@ -64,6 +75,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             }
             return@setOnKeyListener false
         }
+
         //setUp Adapter
         setAdapter()
 
@@ -80,27 +92,37 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         navigationView = NavigationView(this)
             .setupTitle(resources.getString(R.string.github_title_navbar))
             .setupNavIcon(R.drawable.ic_baseline_settings_24)
-            .setNavigation {
-                //set up localization
-
+            .setNavMoreIcon(R.drawable.ic_baseline_favorite_24_white)
+            .setNavigation { view ->
+                //set up local favorite users
+                when(view.id) {
+                    //create callback for icon in navBar
+                    R.id.icon_settings -> {
+                        //setting
+                    }
+                    R.id.icon_favorite -> {
+                        //favorite
+                    }
+                }
             }
     }
 
     private fun setAdapter() {
         //set LayoutManager that this recyclerView will use
-        binding.rvListUsers.setUpVerticalLayoutManager()
+        val linearLayoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        binding.rvListUsers.layoutManager = linearLayoutManager
         binding.rvListUsers.adapter = adapter
         binding.rvListUsers.setHasFixedSize(true)
     }
 
     private fun searchUsers() {
         binding.apply {
-            val query = edtTxtQuery.text.toString()
+            query = edtTxtQuery.text.toString()
             if (query.isEmpty()) {
                 showToastDanger(this@MainActivity) { resources.getString(R.string.toast_danger) }
                 return
             }
-            viewModel.getSearchUsers(query)
+            viewModel?.getSearchUsers(query)
         }
     }
 

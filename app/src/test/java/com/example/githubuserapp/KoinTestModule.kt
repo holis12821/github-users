@@ -1,9 +1,6 @@
 package com.example.githubuserapp
 
-import com.example.githubuserapp.di.networkModule
-import com.example.githubuserapp.di.repositoryModule
-import com.example.githubuserapp.di.useCaseModule
-import com.example.githubuserapp.di.viewModelModule
+import com.example.githubuserapp.di.*
 import org.junit.Test
 import org.koin.core.logger.Level
 import org.koin.dsl.koinApplication
@@ -20,7 +17,8 @@ class KoinTestModule: KoinTest {
                     networkModule,
                     repositoryModule,
                     useCaseModule,
-                    viewModelModule
+                    viewModelModule,
+                    preferencesModule
                 )
             )
         }.checkModules()

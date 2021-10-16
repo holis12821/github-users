@@ -5,6 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <variable
+            name="viewModel"
+            type="com.example.githubuserapp.presentation.ui.activity.MainViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -62,7 +65,9 @@
                 app:layout_constraintTop_toBottomOf="@+id/container_search"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:itemCount="10"
+                tools:listitem="@layout/item_user_list"/>
 
         <include
             android:id="@+id/layout_no_internet"

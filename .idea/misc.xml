@@ -9,20 +9,28 @@
         <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.2703125" />
         <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/drawable/ic_baseline_arrow_back_ios_24.xml" value="0.2703125" />
         <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/drawable/ic_baseline_collections_18.xml" value="0.1" />
+        <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.202734375" />
+        <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/drawable/ic_baseline_favorite_24_dark_grey.xml" value="0.202734375" />
+        <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/drawable/ic_baseline_favorite_24_white.xml" value="0.202734375" />
         <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/drawable/ic_baseline_location_city_24.xml" value="0.202734375" />
         <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.20038610038610039" />
         <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/drawable/ic_empty_data.xml" value="0.1951388888888889" />
+        <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/drawable/ic_favorite_clickable.xml" value="0.202734375" />
         <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/drawable/ic_github_icon.xml" value="0.2703125" />
         <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2703125" />
         <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/drawable/ic_no_internet.xml" value="0.176" />
         <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/drawable/ic_search_not_found.xml" value="0.202734375" />
+        <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/drawable/selector_favorite_clickable.xml" value="0.202734375" />
         <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/font/font.xml" value="0.14722222222222223" />
-        <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/activity_detail_user.xml" value="0.264" />
-        <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/activity_main.xml" value="0.16799999999999998" />
+        <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/activity_detail_user.xml" value="0.2" />
+        <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/activity_main.xml" value="0.16" />
+        <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/activity_settings.xml" value="0.152" />
         <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/activity_splash_screen.xml" value="0.20108695652173914" />
         <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/coba_button.xml" value="0.18442622950819673" />
+        <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/content_main.xml" value="0.14233576642335766" />
         <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/fragment_followers.xml" value="0.136" />
         <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/fragment_following.xml" value="0.17896174863387979" />
+        <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/fragment_preference.xml" value="0.1687158469945355" />
         <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/github_progress_dialog.xml" value="0.1" />
         <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/item_follow_list.xml" value="0.18545081967213115" />
         <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/item_user_list.xml" value="0.176" />
@@ -36,8 +44,9 @@
         <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/layout_seller.xml" value="0.2" />
         <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/layout_specification.xml" value="0.19618055555555555" />
         <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/learning_constraint_layout.xml" value="0.1" />
-        <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/navigation_view.xml" value="0.136" />
+        <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/navigation_view.xml" value="0.12" />
         <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/layout/navigation_view_with_icon.xml" value="0.152" />
+        <entry key="..\:/Users/holis/AndroidStudioProjects/GithubUserApp/app/src/main/res/xml/preference.xml" value="0.2" />
       </map>
     </option>
   </component>

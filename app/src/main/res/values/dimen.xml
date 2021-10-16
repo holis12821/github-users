@@ -25,6 +25,7 @@
     <dimen name="space_semi_large">17dp</dimen>
     <dimen name="space_semi_xlarge">20dp</dimen>
     <dimen name="space_super_large">24dp</dimen>
+    <dimen name="space_super_xlarge">30dp</dimen>
     <dimen name="space_big_medium">45dp</dimen>
     <dimen name="space_big_semi_medium">56dp</dimen>
     <dimen name="space_big_xlarge">60dp</dimen>
