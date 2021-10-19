@@ -3,7 +3,7 @@
  * Copyright (c) 2021 All rights reserved.
  * Created by Nurholis on 17/09/21 03:36 PM
  * Last modified 17/09/21 03:36 PM by Nurholis*/
-package com.example.githubuserapp.domain.repository
+package com.example.githubuserapp.domain.repository.api
 
 import com.example.githubuserapp.data.response.DetailUsersResponse
 import com.example.githubuserapp.data.response.ItemsItem

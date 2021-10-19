@@ -32,7 +32,7 @@ class FollowingFragmentsViewModel(
 
     fun getFollowing(username: String) {
         viewModelScope.launch {
-            useCase.invoke(username = username)
+            useCase.execute(username = username)
                 .onStart {
                     _isLoading.value = true
                 }.onCompletion {

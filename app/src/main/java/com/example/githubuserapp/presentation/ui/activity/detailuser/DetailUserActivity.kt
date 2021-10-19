@@ -6,6 +6,7 @@
 package com.example.githubuserapp.presentation.ui.activity.detailuser
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import com.bumptech.glide.Glide
 import com.example.githubuserapp.R
@@ -15,6 +16,7 @@ import com.example.githubuserapp.data.response.ItemsItem
 import com.example.githubuserapp.databinding.ActivityDetailUserBinding
 import com.example.githubuserapp.external.constant.KEY_EXTRA_USERS
 import com.example.githubuserapp.external.constant.TAB_TITLES_FRAGMENT
+import com.example.githubuserapp.presentation.ui.activity.settings.SettingsActivity
 import com.example.githubuserapp.presentation.ui.adapter.ViewPagerAdapter
 import com.example.githubuserapp.presentation.ui.custom.NavigationView
 import com.google.android.material.tabs.TabLayoutMediator
@@ -59,10 +61,24 @@ class DetailUserActivity: BaseActivity<ActivityDetailUserBinding>() {
     }
 
     private fun setUpNavigationView() {
-        navigationView = NavigationView(this).setupNavIcon(R.drawable.ic_baseline_arrow_back_ios_24)
+        navigationView = NavigationView(this).setOnBackPressedIcon(R.drawable.ic_baseline_arrow_back_ios_24)
             .setupTitle(resources.getString(R.string.detail_users))
+            .setupNavIcon(R.drawable.ic_baseline_settings_24)
+            .setNavMoreIcon(R.drawable.ic_baseline_favorite_24_white)
             .setNavigation {
-                onBackPressed()
+               when (it.id) {
+                   R.id.navigation_back -> {
+                       onBackPressed()
+                   }
+                   R.id.icon_settings -> {
+                       val intent = Intent(this, SettingsActivity::class.java)
+                       startActivity(intent)
+                       finish()
+                   }
+                   R.id.icon_favorite -> {
+                       showPositiveToast(this) {"Ini masih dalam pengembangan bos makasih"}
+                   }
+               }
             }
     }
 
@@ -104,6 +120,5 @@ class DetailUserActivity: BaseActivity<ActivityDetailUserBinding>() {
 
     private fun onShowMessage(message: Throwable) {
         showToastDanger(this) { message.message ?: ""}
-
     }
 }

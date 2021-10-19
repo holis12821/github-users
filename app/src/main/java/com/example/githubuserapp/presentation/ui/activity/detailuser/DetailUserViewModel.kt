@@ -32,7 +32,7 @@ class DetailUserViewModel(
 
     fun getDetailUsers(username: String) {
         viewModelScope.launch {
-            usersUseCase.invoke(username = username)
+            usersUseCase.execute(username = username)
                 .onStart {
                     _isLoading.value = true
                 }.onCompletion {

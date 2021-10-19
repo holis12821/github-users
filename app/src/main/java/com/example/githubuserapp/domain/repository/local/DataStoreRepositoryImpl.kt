@@ -1,4 +1,4 @@
-package com.example.githubuserapp.domain.repository.datastore_repository
+package com.example.githubuserapp.domain.repository.local
 
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
@@ -7,14 +7,14 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
 class DataStoreRepositoryImpl(
-   private val dataStore: DataStore<Preferences>,
-   private val themeSettings: Preferences.Key<Boolean>
+    private val dataStore: DataStore<Preferences>,
+    private val themeSettings: Preferences.Key<Boolean>
 ): DataStoreRepository {
 
     override fun getThemeSettings(): Flow<Boolean> {
-       return dataStore.data.map { preferences ->
-           preferences[themeSettings] ?: false
-       }
+        return dataStore.data.map { preferences ->
+            preferences[themeSettings] ?: false
+        }
     }
 
     override suspend fun saveThemeSetting(isDarkModeActive: Boolean) {

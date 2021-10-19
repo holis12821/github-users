@@ -1,13 +1,20 @@
 package com.example.githubuserapp.di
 
+import android.app.Application
 import android.content.Context
+import androidx.room.Room
+import com.example.githubuserapp.data.local.db.LocalDb
+import com.example.githubuserapp.data.local.db.dao.FavoriteDao
+import org.koin.android.ext.koin.androidApplication
+import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 
-/**
- * Db module to handle local database with room and inject database as singleton*/
 val dbModule = module {
-    single {  }
+    single { provideDatabase(androidApplication(), provideDatabaseName()) }
 }
 
-fun provideDatabaseName(): String = "FavoriteUsersDB"
+fun provideDatabaseName(): String = "FavoriteUserDB"
 
+fun provideDatabase(app: Application, databaseName: String): LocalDb {
+    return Room.databaseBuilder(app, LocalDb::class.java, databaseName).build()
+}

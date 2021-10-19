@@ -31,8 +31,8 @@ class SettingsActivity: BaseActivity<ActivitySettingsBinding>() {
 
     private fun setUpNavigation() {
         navigationView = NavigationView(this)
-            .setupTitle(resources.getString(R.string.settings))
             .setOnBackPressedIcon(R.drawable.ic_baseline_arrow_back_ios_24)
+            .setupTitle(resources.getString(R.string.settings))
             .setNavigation {
                 when(it.id) {
                     R.id.navigation_back -> {

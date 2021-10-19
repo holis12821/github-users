@@ -1,4 +1,4 @@
-package com.example.githubuserapp.domain.repository.datastore_repository
+package com.example.githubuserapp.domain.repository.local
 
 import kotlinx.coroutines.flow.Flow
 

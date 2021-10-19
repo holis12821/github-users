@@ -6,12 +6,12 @@
 package com.example.githubuserapp.domain.usecase
 
 import com.example.githubuserapp.data.response.ItemsItem
-import com.example.githubuserapp.domain.repository.GithubUsersRepository
+import com.example.githubuserapp.domain.repository.api.GithubUsersRepository
 import com.example.githubuserapp.presentation.ui.activity.MainViewState
 import kotlinx.coroutines.flow.Flow
 
 class FollowersUseCase(private val repository: GithubUsersRepository) {
-    suspend operator fun invoke(username: String?): Flow<MainViewState<List<ItemsItem>>> {
+    suspend fun execute(username: String?): Flow<MainViewState<List<ItemsItem>>> {
         return repository.getFollowers(username = username)
     }
 }

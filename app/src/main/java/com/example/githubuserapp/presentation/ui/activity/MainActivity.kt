@@ -18,6 +18,7 @@ import com.example.githubuserapp.databinding.ActivityMainBinding
 import com.example.githubuserapp.external.constant.KEY_EXTRA_USERS
 import com.example.githubuserapp.external.extension.*
 import com.example.githubuserapp.presentation.ui.activity.detailuser.DetailUserActivity
+import com.example.githubuserapp.presentation.ui.activity.settings.SettingsActivity
 import com.example.githubuserapp.presentation.ui.adapter.AdapterClickListener
 import com.example.githubuserapp.presentation.ui.adapter.UsersAdapter
 import com.example.githubuserapp.presentation.ui.custom.NavigationView
@@ -99,6 +100,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                     //create callback for icon in navBar
                     R.id.icon_settings -> {
                         //setting
+                        val intent = Intent(this, SettingsActivity::class.java)
+                        startActivity(intent)
+                        finish()
                     }
                     R.id.icon_favorite -> {
                         //favorite
@@ -136,6 +140,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     private fun onSuccess(usersResponse: UsersResponse?) {
         if (usersResponse?.items.isNullOrEmpty() ) {
+            binding.layoutEmptyData.viewVisible = false
             binding.rvListUsers.viewVisible = false
             binding.layoutSearchNotFound.viewVisible = true
         } else {
@@ -144,7 +149,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             binding.layoutEmptyData.viewVisible = false
             binding.rvListUsers.viewVisible = true
             adapter.setData(usersResponse?.items)
-            showPositiveToast(this) {"Showing ${usersResponse?.totalCount} data"}
         }
     }
 

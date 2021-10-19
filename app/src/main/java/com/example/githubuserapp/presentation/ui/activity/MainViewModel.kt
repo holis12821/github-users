@@ -9,13 +9,21 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.githubuserapp.data.response.ItemsItem
 import com.example.githubuserapp.data.response.UsersResponse
+import com.example.githubuserapp.domain.usecase.AddFavoriteUsersUseCase
+import com.example.githubuserapp.domain.usecase.GetFavoriteUsersUseCase
 import com.example.githubuserapp.domain.usecase.GithubUsersUseCase
+import com.example.githubuserapp.domain.usecase.RemoveFavoriteUsersUseCase
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
 class MainViewModel(
-    private val useCase: GithubUsersUseCase
+    private val gitHubUsersUseCase: GithubUsersUseCase,
+    private val addFavoriteUsersUseCase: AddFavoriteUsersUseCase,
+    private val removeFavoriteUsersUseCase: RemoveFavoriteUsersUseCase,
+    private val getFavoriteUsersUseCase: GetFavoriteUsersUseCase
 ): ViewModel() {
     //init state
 
@@ -25,12 +33,17 @@ class MainViewModel(
     private val _onError = MutableLiveData<Throwable>()
     val onError: LiveData<Throwable> get() = _onError
 
+    //using livedata from API
    private val _onSuccess = MutableLiveData<UsersResponse?>()
    val onSuccess: LiveData<UsersResponse?> get() = _onSuccess
 
+   //using livedata from local database
+   private val _onSuccessFavoriteUsers = MutableLiveData<List<ItemsItem>?>()
+    val onSuccessFavoriteUsers: LiveData<List<ItemsItem>?> get() = _onSuccessFavoriteUsers
+
    fun getSearchUsers(query: String) {
        viewModelScope.launch {
-           useCase.invoke(query = query)
+           gitHubUsersUseCase.execute(query = query)
                .onStart {
                    _isLoading.value = true
                }.onCompletion {
@@ -48,4 +61,37 @@ class MainViewModel(
                }
        }
    }
+
+    fun saveAsFavorite(entity: ItemsItem) {
+        viewModelScope.launch(Dispatchers.IO) {
+            addFavoriteUsersUseCase.execute(entity = entity)
+        }
+    }
+
+    fun removeAsFavorite(entity: ItemsItem) {
+        viewModelScope.launch(Dispatchers.IO) {
+            removeFavoriteUsersUseCase.execute(entity = entity)
+        }
+    }
+
+    fun getFavoriteUsers() {
+        viewModelScope.launch {
+            getFavoriteUsersUseCase.execute()
+                .onStart {
+                    _isLoading.value = true
+                }.onCompletion {
+                    _isLoading.value = false
+                }
+                .collect {
+                    when(it) {
+                        is MainViewState.Success -> {
+                           _onSuccessFavoriteUsers.value = it.data
+                        }
+                        is MainViewState.Error -> {
+                            _onError.value = it.throwable
+                        }
+                    }
+                }
+        }
+    }
 }

@@ -37,7 +37,8 @@ class GithubUsersApps: MultiDexApplication() {
                 repositoryModule,
                 useCaseModule,
                 viewModelModule,
-                preferencesModule
+                preferencesModule,
+                dbModule
             )
         }
     }

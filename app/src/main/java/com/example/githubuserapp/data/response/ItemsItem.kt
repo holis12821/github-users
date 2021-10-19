@@ -1,11 +1,17 @@
 package com.example.githubuserapp.data.response
 
 import android.os.Parcelable
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
+@Entity
 @Parcelize
-data class ItemsItem(@SerializedName("gists_url")
+data class ItemsItem(@SerializedName("id")
+                     @PrimaryKey
+                     val id: Int? = null,
+                     @SerializedName("gists_url")
                      val gistsUrl: String? = null,
                      @SerializedName("repos_url")
                      val reposUrl:  String? = null,
@@ -35,8 +41,6 @@ data class ItemsItem(@SerializedName("gists_url")
                      val htmlUrl:  String? = null,
                      @SerializedName("site_admin")
                      val siteAdmin: Boolean? = null,
-                     @SerializedName("id")
-                     val id: Int? = null,
                      @SerializedName("gravatar_id")
                      val gravatarId:  String? = null,
                      @SerializedName("node_id")

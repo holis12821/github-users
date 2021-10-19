@@ -1,8 +1,8 @@
 package com.example.githubuserapp.domain.usecase
 
-import com.example.githubuserapp.domain.repository.datastore_repository.DataStoreRepository
+import com.example.githubuserapp.domain.repository.local.DataStoreRepository
 
-class SaveThemeDataStoreUseCase(private val dataStoreRepository: DataStoreRepository) {
+class AddThemeDataStoreUseCase(private val dataStoreRepository: DataStoreRepository) {
     suspend fun execute(isDarkModeActive: Boolean) {
         return dataStoreRepository.saveThemeSetting(isDarkModeActive)
     }

@@ -6,7 +6,11 @@ import androidx.datastore.preferences.preferencesDataStoreFile
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
-
+/**
+ * This module handle to configuration change UI mode theme in application,
+ * this configuration change ui use DarkMode and LightMode.
+ * to save configuration we need to DataStore to
+ * save configuration until the application at uninstall */
 val preferencesModule = module {
     //create each instance
     factory(named("theme_setting")) {
@@ -15,7 +19,7 @@ val preferencesModule = module {
 
     single {
         PreferenceDataStoreFactory.create {
-            androidContext().preferencesDataStoreFile("my_settings_preferences")
+            androidContext().preferencesDataStoreFile("my_settings_preferences_pb")
         }
     }
 }
