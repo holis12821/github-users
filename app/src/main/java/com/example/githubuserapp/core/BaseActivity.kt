@@ -17,7 +17,7 @@ import com.example.githubuserapp.presentation.ui.custom.GithubToast
 /**
  * This BaseActivity class is used for activity that using view
  * and data binding by extending this class will have common function
- * fot binding the view.
+ * for binding the view.
  * for extend this class we need two parameter
  * @param B for view data binding and
  * @see ViewDataBinding is both parameter required and can't

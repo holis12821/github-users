@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black_200">#000000</color>
+    <color name="black_500">#000000</color>
+    <color name="black_700">#000000</color>
+    <color name="teal_200">#8BE2DA</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="divider">#0A050B21</color>
+    <color name="dark_grey">#828282</color>
+    <color name="red">#F44336</color>
+
+</resources>

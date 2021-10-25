@@ -5,9 +5,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <import type="android.view.View" />
         <variable
             name="data"
-            type="com.example.githubuserapp.data.response.ItemsItem" />
+            type="com.example.githubuserapp.data.response.model.ItemsItem" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -52,14 +53,6 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_username"
             app:textViewFontFamily="open-sans-regular"
             tools:text="Dummy Company"/>
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/btn_add_favorite"
-            android:layout_width="@dimen/space_super_large"
-            android:layout_height="@dimen/space_super_large"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:src="@drawable/ic_baseline_favorite_24_dark_grey"/>
 
         <com.example.githubuserapp.presentation.ui.custom.GithubTextView
             android:id="@+id/tv_location"

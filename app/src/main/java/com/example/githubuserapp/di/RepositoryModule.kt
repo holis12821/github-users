@@ -7,7 +7,7 @@ package com.example.githubuserapp.di
 
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
-import com.example.githubuserapp.data.local.db.LocalDb
+import com.example.githubuserapp.data.local.dao.FavoriteDao
 import com.example.githubuserapp.data.network.GithubUsersDataSource
 import com.example.githubuserapp.domain.repository.api.GithubUsersRepository
 import com.example.githubuserapp.domain.repository.api.GithubUsersRepositoryImpl
@@ -38,6 +38,6 @@ fun provideDataStorePreferences(dataStore: DataStore<Preferences>, themeSettings
     return DataStoreRepositoryImpl(dataStore = dataStore, themeSettings = themeSettings)
 }
 
-fun provideDatabaseRepository(localDb: LocalDb): LocalDatabaseRepository {
-    return LocalDatabaseRepositoryImpl(localDb.favoriteDao())
+fun provideDatabaseRepository(favoriteDao: FavoriteDao): LocalDatabaseRepository {
+    return LocalDatabaseRepositoryImpl(favoriteDao)
 }

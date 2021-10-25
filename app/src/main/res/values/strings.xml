@@ -25,4 +25,15 @@
     <string name="dark_mode">Mengatur Tema terang dan gelap</string>
     <string name="txt_change_ui_theme">Merubah Pengaturan tema aplikasi</string>
     <string name="settings">Settings</string>
+    <string name="save_data_to_database">Berhasil Menyimpan Data</string>
+    <string name="delete_data_to_database">Berhasil Menghapus Data</string>
+
+    <string name="name_users">Name : %s</string>
+    <string name="bio_users">Bio : %s</string>
+    <string name="location_users">Location : %s</string>
+    <string name="company_users">Company : %s</string>
+
+    <string name="favorite">Favorite</string>
+
+
 </resources>

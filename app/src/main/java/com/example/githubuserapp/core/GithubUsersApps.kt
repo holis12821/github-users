@@ -5,6 +5,7 @@
  * Last modified 17/09/21 03:36 PM by Nurholis*/
 package com.example.githubuserapp.core
 
+import android.app.Application
 import androidx.multidex.MultiDex
 import androidx.multidex.MultiDexApplication
 import com.example.githubuserapp.di.*
@@ -33,12 +34,12 @@ class GithubUsersApps: MultiDexApplication() {
             androidLogger(Level.DEBUG)
             androidContext(this@GithubUsersApps)
             modules(
+                dbModule,
                 networkModule,
                 repositoryModule,
                 useCaseModule,
                 viewModelModule,
-                preferencesModule,
-                dbModule
+                preferencesModule
             )
         }
     }

@@ -5,17 +5,19 @@
  * Last modified 15/09/21 13.00 PM by Nurholis*/
 package com.example.githubuserapp.presentation.ui.activity.detailuser
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import com.bumptech.glide.Glide
 import com.example.githubuserapp.R
 import com.example.githubuserapp.core.BaseActivity
 import com.example.githubuserapp.data.response.DetailUsersResponse
-import com.example.githubuserapp.data.response.ItemsItem
+import com.example.githubuserapp.data.response.model.ItemsItem
 import com.example.githubuserapp.databinding.ActivityDetailUserBinding
 import com.example.githubuserapp.external.constant.KEY_EXTRA_USERS
 import com.example.githubuserapp.external.constant.TAB_TITLES_FRAGMENT
+import com.example.githubuserapp.external.extension.viewGone
+import com.example.githubuserapp.external.extension.viewVisible
+import com.example.githubuserapp.presentation.ui.activity.favorite.FavoriteActivity
 import com.example.githubuserapp.presentation.ui.activity.settings.SettingsActivity
 import com.example.githubuserapp.presentation.ui.adapter.ViewPagerAdapter
 import com.example.githubuserapp.presentation.ui.custom.NavigationView
@@ -29,6 +31,8 @@ class DetailUserActivity: BaseActivity<ActivityDetailUserBinding>() {
     private lateinit var navigationView: NavigationView
     private lateinit var viewPagerAdapter: ViewPagerAdapter
 
+    private var isFavorite = false
+
     override fun getResLayoutId(): Int = R.layout.activity_detail_user
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -40,14 +44,19 @@ class DetailUserActivity: BaseActivity<ActivityDetailUserBinding>() {
         binding.viewModel = viewModel
         //get data from previous activity
         val getUsersExtra = intent.getParcelableExtra<ItemsItem>(KEY_EXTRA_USERS) as ItemsItem
-        getUsersExtra.login?.let {
-            viewModel.getDetailUsers(it)
+        getUsersExtra.login?.let { username ->
+            viewModel.setUsername(username = username)
         }
         val mBundle = Bundle()
         mBundle.putParcelable(KEY_EXTRA_USERS, getUsersExtra)
         setUpNavigationView()
         //setUp Adapter to handle ViewPager2
         setUpAdapterViewPager(mBundle)
+
+        binding.fabFavorite.setOnClickListener {
+            onChangeFavorite(isFavorite)
+            onAddOrRemoveFavorite(viewModel.getDetailUsers())
+        }
     }
 
     private fun setUpAdapterViewPager(mBundle: Bundle) {
@@ -73,20 +82,34 @@ class DetailUserActivity: BaseActivity<ActivityDetailUserBinding>() {
                    R.id.icon_settings -> {
                        val intent = Intent(this, SettingsActivity::class.java)
                        startActivity(intent)
-                       finish()
                    }
                    R.id.icon_favorite -> {
-                       showPositiveToast(this) {"Ini masih dalam pengembangan bos makasih"}
+                       val intent = Intent(this, FavoriteActivity::class.java)
+                       startActivity(intent)
                    }
                }
             }
+
     }
 
     private fun onObserver() {
-        viewModel.isLoading.observe(this, { onLoading -> onProgress(onLoading)} )
-        viewModel.onError.observe(this, {onError -> onShowMessage(onError)} )
-        viewModel.onSuccess.observe(this, { onSuccess -> onSuccess(onSuccess)} )
+       viewModel.stateData.observe(this, { state ->
+           handleState(state)
+       })
+    }
 
+    private fun handleState(state: DetailUserViewState) {
+        when(state) {
+            is DetailUserViewState.Init -> onInitState()
+            is DetailUserViewState.Progress -> onProgress(state.isLoading)
+            is DetailUserViewState.ShowMessage -> onShowMessage(state.message)
+            is DetailUserViewState.Favorite -> onChangeFavorite(state.isFavorite)
+            is DetailUserViewState.ShowDetailUser -> onSuccess(state.data)
+        }
+    }
+
+    private fun onInitState() {
+        binding.scrollView.viewGone = true
     }
 
     private fun onProgress(loading: Boolean) {
@@ -97,28 +120,53 @@ class DetailUserActivity: BaseActivity<ActivityDetailUserBinding>() {
         }
     }
 
-    @SuppressLint("SetTextI18n")
-    private fun onSuccess(detailUsersResponse: DetailUsersResponse?) {
-
+    private fun onSuccess(detailUsers: DetailUsersResponse?) {
+        binding.scrollView.viewVisible = true
         //binding data to view
         with(binding) {
             //load image view Glide
             Glide.with(this@DetailUserActivity)
-                .load(detailUsersResponse?.avatarUrl)
+                .load(detailUsers?.avatarUrl)
                 .into(ciProfile)
-            tvUsername.text = "Username : ${detailUsersResponse?.login ?: "-"}"
-            tvName.text = "Name : ${detailUsersResponse?.name ?: "-"}"
-            tvLocation.text = "Location : ${detailUsersResponse?.location ?: "-"}"
-            tvCompany.text = "Company : ${detailUsersResponse?.company ?: "-"}"
+            tvName.text = resources.getString(R.string.name_users, detailUsers?.name ?: "-")
+            tvBio.text = resources.getString(R.string.bio_users, detailUsers?.bio ?: "-")
+            tvLocation.text = resources.getString(R.string.location_users, detailUsers?.location ?: "-")
+            tvCompany.text = resources.getString(R.string.company_users, detailUsers?.company ?: "-")
 
-            tvCalculateRepo.text = detailUsersResponse?.publicRepos.toString()
-            tvCalculateFollowers.text = detailUsersResponse?.followers.toString()
-            tvCalculateFollowing.text = detailUsersResponse?.following.toString()
+            tvCalculateRepo.text = detailUsers?.publicRepos.toString()
+            tvCalculateFollowers.text = detailUsers?.followers.toString()
+            tvCalculateFollowing.text = detailUsers?.following.toString()
         }
-
+        detailUsers?.let {
+            viewModel.init(it)
+        }
     }
 
-    private fun onShowMessage(message: Throwable) {
-        showToastDanger(this) { message.message ?: ""}
+    private fun onShowMessage(message: String?) {
+        showToastDanger(this) { message ?: ""}
+    }
+
+    private fun onChangeFavorite(isChange: Boolean) {
+        isFavorite = isChange
+        if (isChange) {
+            binding.fabFavorite.setImageResource(R.drawable.ic_baseline_favorite_24_red)
+        } else {
+            binding.fabFavorite.setImageResource(R.drawable.ic_baseline_favorite_24_dark_grey)
+        }
+    }
+
+    private fun onAddOrRemoveFavorite(detailUsers: DetailUsersResponse?) {
+       if (isFavorite) {
+           viewModel.saveAsFavorite(detailUsers)
+           showPositiveToast(this) {resources.getString(R.string.save_data_to_database)}
+       } else {
+           viewModel.removeAsFavorite(detailUsers)
+           showPositiveToast(this) {resources.getString(R.string.delete_data_to_database)}
+       }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        hideProgress()
     }
 }

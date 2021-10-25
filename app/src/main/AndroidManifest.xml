@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GithubUserApp">
         <activity
-            android:name="com.example.githubuserapp.presentation.ui.activity.MainActivity"
+            android:name="com.example.githubuserapp.presentation.ui.activity.home.MainActivity"
             android:exported="true" />
         <activity
             android:name="com.example.githubuserapp.presentation.ui.activity.detailuser.DetailUserActivity"
@@ -23,6 +23,8 @@
         <activity
             android:name="com.example.githubuserapp.presentation.ui.activity.settings.SettingsActivity"
             android:exported="true" />
+        <activity android:name=".presentation.ui.activity.favorite.FavoriteActivity"
+            android:exported="true"/>
         <activity
             android:name="com.example.githubuserapp.presentation.ui.activity.splashscreen.SplashScreenActivity"
             android:exported="true">

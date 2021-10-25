@@ -1,8 +1,15 @@
 package com.example.githubuserapp.data.response
 
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
-data class DetailUsersResponse(@SerializedName("gists_url")
+@Entity(tableName = "table_user")
+data class DetailUsersResponse(@PrimaryKey
+                               @SerializedName("id")
+                               val id: Int? = null,
+                               @SerializedName("gists_url")
                                val gistsUrl: String? = null,
                                @SerializedName("repos_url")
                                val reposUrl: String? = null,
@@ -14,6 +21,7 @@ data class DetailUsersResponse(@SerializedName("gists_url")
                                val bio: String? = null,
                                @SerializedName("created_at")
                                val createdAt: String? = null,
+                               @ColumnInfo
                                @SerializedName("login")
                                val login: String? = null,
                                @SerializedName("type")
@@ -26,10 +34,9 @@ data class DetailUsersResponse(@SerializedName("gists_url")
                                val updatedAt: String? = null,
                                @SerializedName("site_admin")
                                val siteAdmin: Boolean? = null,
+                               @ColumnInfo
                                @SerializedName("company")
                                val company: String? = null,
-                               @SerializedName("id")
-                               val id: Int? = null,
                                @SerializedName("public_repos")
                                val publicRepos: Int? = null,
                                @SerializedName("gravatar_id")
@@ -62,6 +69,7 @@ data class DetailUsersResponse(@SerializedName("gists_url")
                                val following: Int? = null,
                                @SerializedName("name")
                                val name: String? = null,
+                               @ColumnInfo
                                @SerializedName("location")
                                val location: String? = null,
                                @SerializedName("node_id")

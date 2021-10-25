@@ -1,7 +1,8 @@
-package com.example.githubuserapp.data.local.db.dao
+package com.example.githubuserapp.data.local.dao
 
 import androidx.room.*
-import com.example.githubuserapp.data.response.ItemsItem
+import com.example.githubuserapp.data.response.DetailUsersResponse
+import com.example.githubuserapp.data.response.model.ItemsItem
 
 @Dao
 interface FavoriteDao {
@@ -9,8 +10,8 @@ interface FavoriteDao {
      * This query is used to access database which will
      * sort the data by username
      * */
-    @Query("SELECT * FROM ItemsItem ORDER BY login")
-    suspend fun all(): List<ItemsItem>
+    @Query("SELECT * FROM table_user ORDER BY login ASC")
+    suspend fun all(): List<DetailUsersResponse>
 
     /**
      * This query is used to access database which will insert
@@ -18,10 +19,10 @@ interface FavoriteDao {
      * entered it will be replaced
      * */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-   suspend fun add(entity: ItemsItem)
+   suspend fun add(entity: DetailUsersResponse)
     /**
      * This query is used to access database which will delete data
      * or entity into database*/
     @Delete
-   suspend fun delete(entity: ItemsItem)
+   suspend fun delete(entity: DetailUsersResponse)
 }

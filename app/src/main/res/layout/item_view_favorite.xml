@@ -8,7 +8,7 @@
         <import type="android.view.View" />
         <variable
             name="data"
-            type="com.example.githubuserapp.data.response.model.ItemsItem" />
+            type="com.example.githubuserapp.data.response.DetailUsersResponse" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -45,7 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/space_semi_xlarge"
             android:layout_marginTop="8dp"
-            android:text="@{data.htmlUrl}"
+            android:text="@{data.company}"
             android:textSize="@dimen/text_small_medium"
             android:lines="1"
             app:layout_constraintLeft_toRightOf="@+id/ci_profile"
@@ -59,7 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/space_semi_xlarge"
             android:layout_marginTop="7dp"
-            android:text="@{data.eventsUrl}"
+            android:text="@{data.location}"
             android:textSize="@dimen/text_small_medium"
             android:lines="1"
             app:layout_constraintTop_toBottomOf="@+id/tv_html_url"

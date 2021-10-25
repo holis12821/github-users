@@ -10,7 +10,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.githubuserapp.R
-import com.example.githubuserapp.data.response.ItemsItem
+import com.example.githubuserapp.data.response.model.ItemsItem
 import com.example.githubuserapp.databinding.ItemViewFollowBinding
 
 class AdapterFollow: RecyclerView.Adapter<AdapterFollow.FollowViewHolder>() {

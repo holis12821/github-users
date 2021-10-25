@@ -6,14 +6,13 @@
 package com.example.githubuserapp.domain.repository.api
 
 import com.example.githubuserapp.data.response.DetailUsersResponse
-import com.example.githubuserapp.data.response.ItemsItem
+import com.example.githubuserapp.data.response.model.ItemsItem
 import com.example.githubuserapp.data.response.UsersResponse
-import com.example.githubuserapp.presentation.ui.activity.MainViewState
 import kotlinx.coroutines.flow.Flow
 
 interface GithubUsersRepository {
-    suspend fun getSearchUsers(query: String?): Flow<MainViewState<UsersResponse>>
-    suspend fun getDetailUsers(username: String?): Flow<MainViewState<DetailUsersResponse>>
-    suspend fun getFollowers(username: String?): Flow<MainViewState<List<ItemsItem>>>
-    suspend fun getFollowing(username: String?): Flow<MainViewState<List<ItemsItem>>>
+    suspend fun getSearchUsers(query: String?): Flow<UsersResponse>
+    suspend fun getDetailUsers(username: String?): Flow<DetailUsersResponse>
+    suspend fun getFollowers(username: String?): Flow<List<ItemsItem>>
+    suspend fun getFollowing(username: String?): Flow<List<ItemsItem>>
 }

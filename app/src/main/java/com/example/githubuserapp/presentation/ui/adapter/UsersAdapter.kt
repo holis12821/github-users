@@ -10,7 +10,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.githubuserapp.R
-import com.example.githubuserapp.data.response.ItemsItem
+import com.example.githubuserapp.data.response.model.ItemsItem
 import com.example.githubuserapp.databinding.ItemUserListBinding
 
 class UsersAdapter:
@@ -27,9 +27,6 @@ class UsersAdapter:
             binding.data = data
             itemView.setOnClickListener {
                 listener.onItemClickCallback(data = data)
-            }
-            binding.btnAddFavorite.setOnClickListener {
-                listener.onViewClickCallback(it, data)
             }
         }
     }

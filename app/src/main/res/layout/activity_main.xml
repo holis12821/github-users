@@ -7,13 +7,13 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.githubuserapp.presentation.ui.activity.MainViewModel" />
+            type="com.example.githubuserapp.presentation.ui.activity.home.MainViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".presentation.ui.activity.MainActivity">
+        tools:context=".presentation.ui.activity.home.MainActivity">
 
         <include
             android:id="@+id/navigation_view"

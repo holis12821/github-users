@@ -49,6 +49,7 @@ class SettingsActivity: BaseActivity<ActivitySettingsBinding>() {
                 binding.switchTheme.isChecked = true
             } else {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                binding.switchTheme.isChecked = false
             }
         })
     }

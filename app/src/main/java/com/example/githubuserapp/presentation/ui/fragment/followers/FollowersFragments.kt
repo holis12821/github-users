@@ -7,7 +7,7 @@ package com.example.githubuserapp.presentation.ui.fragment.followers
 
 import com.example.githubuserapp.R
 import com.example.githubuserapp.core.BaseFragment
-import com.example.githubuserapp.data.response.ItemsItem
+import com.example.githubuserapp.data.response.model.ItemsItem
 import com.example.githubuserapp.databinding.FragmentFollowersBinding
 import com.example.githubuserapp.external.constant.KEY_EXTRA_USERS
 import com.example.githubuserapp.external.extension.setUpVerticalLayoutManager
@@ -31,13 +31,22 @@ class FollowersFragments: BaseFragment<FragmentFollowersBinding>() {
     private fun initView() {
         setUpAdapter()
         val username = arguments?.getParcelable<ItemsItem>(KEY_EXTRA_USERS)
-        viewModel.getFollowers(username?.login ?: "")
+        viewModel.setUsername(username = username?.login ?: "")
     }
 
     private fun onObserver() {
-        viewModel.isLoading.observe(viewLifecycleOwner, { onProgress -> onProgress(onProgress) })
-        viewModel.onError.observe(viewLifecycleOwner, { onShowMessage -> onShowMessage(onShowMessage) })
-        viewModel.onSuccess.observe(viewLifecycleOwner, {onSuccess -> onSuccess(onSuccess) })
+        viewModel.stateData.observe(viewLifecycleOwner, { state ->
+            handleState(state)
+        })
+    }
+
+    private fun handleState(state: FollowersViewState) {
+        when (state) {
+            is FollowersViewState.Init -> onInitState()
+            is FollowersViewState.Progress -> onProgress(state.isLoading)
+            is FollowersViewState.ShowMessage -> onShowMessage(state.message)
+            is FollowersViewState.ShowFollowers -> onSuccess(state.list)
+        }
     }
 
     private fun setUpAdapter() {
@@ -45,6 +54,10 @@ class FollowersFragments: BaseFragment<FragmentFollowersBinding>() {
         binding?.rvList?.setUpVerticalLayoutManager()
         binding?.rvList?.adapter = adapter
         binding?.rvList?.setHasFixedSize(true)
+    }
+
+    private fun onInitState() {
+        binding?.rvList?.viewGone= true
     }
 
     private fun onProgress(loading: Boolean) {
@@ -55,9 +68,9 @@ class FollowersFragments: BaseFragment<FragmentFollowersBinding>() {
         }
     }
 
-    private fun onShowMessage(message: Throwable) {
+    private fun onShowMessage(message: String?) {
         activity?.let {
-            showToastDanger(it) { message.message ?: ""}
+            showToastDanger(it) { message ?: ""}
         }
         binding?.layoutEmptyData?.viewVisible = true
         binding?.rvList?.viewVisible = false
@@ -77,5 +90,6 @@ class FollowersFragments: BaseFragment<FragmentFollowersBinding>() {
     override fun onDestroyView() {
         super.onDestroyView()
         binding = null
+        hideProgress()
     }
 }

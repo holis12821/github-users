@@ -3,7 +3,7 @@
  * Copyright (c) 2021 All rights reserved.
  * Created by Nurholis on 15/09/21 01:00 PM
  * Last modified 15/09/21 01:00 PM by Nurholis*/
-package com.example.githubuserapp.presentation.ui.activity
+package com.example.githubuserapp.presentation.ui.activity.home
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,8 +12,8 @@ import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.githubuserapp.R
 import com.example.githubuserapp.core.BaseActivity
-import com.example.githubuserapp.data.response.ItemsItem
 import com.example.githubuserapp.data.response.UsersResponse
+import com.example.githubuserapp.data.response.model.ItemsItem
 import com.example.githubuserapp.databinding.ActivityMainBinding
 import com.example.githubuserapp.external.constant.KEY_EXTRA_USERS
 import com.example.githubuserapp.external.extension.*
@@ -43,12 +43,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             }
 
             override fun onViewClickCallback(view: View, data: ItemsItem?) {
-                when(view.id) {
-                    R.id.btn_add_favorite -> {
-                        //add to local database
 
-                    }
-                }
             }
         }
     }
@@ -84,9 +79,18 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     }
 
     private fun onObserver() {
-        viewModel.isLoading.observe(this, { onLoading -> onProgress(onLoading) })
-        viewModel.onError.observe(this, { isThrowable -> onShowMessage(isThrowable)})
-        viewModel.onSuccess.observe(this, { usersResponse -> onSuccess(usersResponse)})
+        viewModel.stateData.observe(this, { state ->
+            handleState(state)
+        })
+    }
+
+    private fun handleState(state: MainViewState) {
+        when(state) {
+            is MainViewState.Init -> onInitState()
+            is MainViewState.Progress -> onProgress(state.isLoading)
+            is MainViewState.ShowMessage -> onShowMessage(state.message)
+            is MainViewState.ShowSearchUsers -> onSuccess(state.list)
+        }
     }
 
     private fun setUpNavigationView(){
@@ -102,7 +106,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                         //setting
                         val intent = Intent(this, SettingsActivity::class.java)
                         startActivity(intent)
-                        finish()
                     }
                     R.id.icon_favorite -> {
                         //favorite
@@ -123,11 +126,17 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         binding.apply {
             query = edtTxtQuery.text.toString()
             if (query.isEmpty()) {
-                showToastDanger(this@MainActivity) { resources.getString(R.string.toast_danger) }
+                showToastDanger(this@MainActivity) {
+                    resources.getString(R.string.toast_danger)
+                }
                 return
             }
             viewModel?.getSearchUsers(query)
         }
+    }
+
+    private fun onInitState() {
+        binding.rvListUsers.viewGone = true
     }
 
     private fun onProgress(loading: Boolean) {
@@ -138,8 +147,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         }
     }
 
-    private fun onSuccess(usersResponse: UsersResponse?) {
-        if (usersResponse?.items.isNullOrEmpty() ) {
+    private fun onSuccess(list: List<ItemsItem>?) {
+        if (list.isNullOrEmpty() ) {
             binding.layoutEmptyData.viewVisible = false
             binding.rvListUsers.viewVisible = false
             binding.layoutSearchNotFound.viewVisible = true
@@ -148,15 +157,20 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             binding.layoutNoInternet.viewVisible = false
             binding.layoutEmptyData.viewVisible = false
             binding.rvListUsers.viewVisible = true
-            adapter.setData(usersResponse?.items)
+            adapter.setData(list)
         }
     }
 
-    private fun onShowMessage(message: Throwable) {
-        showToastDanger(this) { message.message ?: "" }
+    private fun onShowMessage(message: String?) {
+        showToastDanger(this) { message ?: "" }
         binding.layoutNoInternet.viewVisible = true
         binding.rvListUsers.viewVisible = false
         binding.layoutSearchNotFound.viewVisible = false
         binding.layoutEmptyData.viewVisible = false
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        hideProgress()
     }
 }

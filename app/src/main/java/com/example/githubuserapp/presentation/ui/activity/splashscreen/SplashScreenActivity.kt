@@ -12,7 +12,7 @@ import com.example.githubuserapp.R
 import com.example.githubuserapp.core.BaseActivity
 import com.example.githubuserapp.databinding.ActivitySplashScreenBinding
 import com.example.githubuserapp.external.utils.LogUtils
-import com.example.githubuserapp.presentation.ui.activity.MainActivity
+import com.example.githubuserapp.presentation.ui.activity.home.MainActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SplashScreenActivity: BaseActivity<ActivitySplashScreenBinding>() {

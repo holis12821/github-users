@@ -5,12 +5,10 @@
  * Last modified 17/09/21 03:36 PM by Nurholis*/
 package com.example.githubuserapp.data.response
 
-import com.google.gson.annotations.SerializedName
+import com.example.githubuserapp.data.response.model.ItemsItem
+
 /**
  * This class used base response to handle API.*/
-data class UsersResponse(@SerializedName("total_count")
-                         val totalCount: Int = 0,
-                         @SerializedName("incomplete_results")
+data class UsersResponse(val totalCount: Int = 0,
                          val incompleteResults: Boolean = false,
-                         @SerializedName("items")
                          val items: List<ItemsItem>? = null)

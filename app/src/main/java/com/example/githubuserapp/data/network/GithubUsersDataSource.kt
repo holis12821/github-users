@@ -7,7 +7,7 @@ package com.example.githubuserapp.data.network
 
 import com.example.githubuserapp.BuildConfig
 import com.example.githubuserapp.data.response.DetailUsersResponse
-import com.example.githubuserapp.data.response.ItemsItem
+import com.example.githubuserapp.data.response.model.ItemsItem
 import com.example.githubuserapp.data.response.UsersResponse
 import retrofit2.http.GET
 import retrofit2.http.Headers
@@ -23,7 +23,7 @@ interface GithubUsersDataSource {
 
     @Headers("Authorization: ${BuildConfig.TOKEN}")
     @GET("search/users")
-  suspend  fun getSearchUsers(
+    suspend  fun getSearchUsers(
         @Query("q") query: String?
     ): UsersResponse
 

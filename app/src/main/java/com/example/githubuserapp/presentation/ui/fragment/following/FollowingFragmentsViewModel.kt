@@ -9,11 +9,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.githubuserapp.data.response.ItemsItem
+import com.example.githubuserapp.data.response.model.ItemsItem
 import com.example.githubuserapp.domain.usecase.FollowingUseCase
-import com.example.githubuserapp.presentation.ui.activity.MainViewState
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
 
@@ -21,32 +20,50 @@ class FollowingFragmentsViewModel(
     private val useCase: FollowingUseCase
 ) : ViewModel() {
     //init state
-    private val _isLoading = MutableLiveData<Boolean>()
-    val isLoading: LiveData<Boolean> get() = _isLoading
+    private val _stateData = MutableLiveData<FollowingViewState>(FollowingViewState.Init)
+    val stateData: LiveData<FollowingViewState> get() = _stateData
 
-    private val _onError = MutableLiveData<Throwable>()
-    val onError: LiveData<Throwable> get() = _onError
+    private var username = ""
 
-    private val _onSuccess = MutableLiveData<List<ItemsItem>?>()
-    val onSuccess: LiveData<List<ItemsItem>?> get() = _onSuccess
+    init {
+        getFollowing(username = username)
+    }
 
-    fun getFollowing(username: String) {
+    fun setUserName(username: String) {
+        this.username = username
+    }
+
+    private fun getFollowing(username: String) {
         viewModelScope.launch {
             useCase.execute(username = username)
-                .onStart {
-                    _isLoading.value = true
-                }.onCompletion {
-                    _isLoading.value = false
-                }.collect {
-                    when(it) {
-                        is MainViewState.Success -> {
-                            _onSuccess.value = it.data
-                        }
-                        is MainViewState.Error -> {
-                            _onError.value = it.throwable
-                        }
-                    }
+                .onStart { showLoading() }
+                .catch { e ->
+                    hideLoading()
+                    showMessage(e.message)
+                }
+                .collect { result ->
+                    hideLoading()
+                    showFollowing(result)
                 }
         }
     }
+
+    private fun showLoading() {
+        _stateData.value = FollowingViewState.Progress(isLoading = true)
+    }
+
+    private fun hideLoading() {
+        _stateData.value = FollowingViewState.Progress(isLoading = false)
+    }
+
+    private fun showMessage(message: String?) {
+        if (!message.isNullOrEmpty()) {
+            _stateData.value = FollowingViewState.ShowMessage(message)
+        }
+    }
+
+    private fun showFollowing(list: List<ItemsItem>?) {
+        _stateData.value = FollowingViewState.ShowFollowing(list)
+    }
+
 }
