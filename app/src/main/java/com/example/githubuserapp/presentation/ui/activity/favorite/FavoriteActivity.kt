@@ -90,7 +90,7 @@ class FavoriteActivity : BaseActivity<ActivityFavoriteBinding>() {
 
 
     private fun onInitState() {
-        binding.nestedScrollView.viewGone = true
+       binding.rvFavorite.viewGone = true
     }
 
     private fun onProgress(loading: Boolean) {
@@ -103,11 +103,8 @@ class FavoriteActivity : BaseActivity<ActivityFavoriteBinding>() {
 
     private fun onShowFavorite(list: List<DetailUsersResponse>?) {
         if (list.isNullOrEmpty()) {
-            binding.nestedScrollView.viewGone = true
             binding.rvFavorite.viewGone = true
-            //layout Empty state
         } else {
-            binding.nestedScrollView.viewVisible = true
             binding.rvFavorite.viewVisible = true
             adapter.setData(list = list)
         }
