@@ -23,17 +23,7 @@ class FollowersFragmentsViewModel(
     private val _stateData = MutableLiveData<FollowersViewState>(FollowersViewState.Init)
     val stateData: LiveData<FollowersViewState> get() = _stateData
 
-    private var username = ""
-
-    init {
-        getFollowers(username = username)
-    }
-
-    fun setUsername(username: String) {
-        this.username = username
-    }
-
-    private fun getFollowers(username: String) {
+    fun getFollowers(username: String) {
         viewModelScope.launch {
             useCase.execute(username = username)
                 .onStart { showLoading() }
@@ -62,8 +52,8 @@ class FollowersFragmentsViewModel(
         }
     }
 
-   private fun showFollowers(list: List<ItemsItem>?) {
-       _stateData.value = FollowersViewState.ShowFollowers(list)
-   }
+    private fun showFollowers(list: List<ItemsItem>?) {
+        _stateData.value = FollowersViewState.ShowFollowers(list)
+    }
 
 }

@@ -11,18 +11,19 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.githubuserapp.R
 import com.example.githubuserapp.data.response.model.ItemsItem
-import com.example.githubuserapp.databinding.ItemUserListBinding
+import com.example.githubuserapp.databinding.ItemViewUserListBinding
+import com.example.githubuserapp.presentation.ui.adapter.callback.AdapterClickListener
 
-class UsersAdapter:
+class UsersAdapter :
     RecyclerView.Adapter<UsersAdapter.UsersViewHolder>() {
 
-     val list = mutableListOf<ItemsItem>()
+    val list = mutableListOf<ItemsItem>()
 
     lateinit var listener: AdapterClickListener<ItemsItem?>
 
     inner class UsersViewHolder(
-      private val binding: ItemUserListBinding
-    ): RecyclerView.ViewHolder(binding.root) {
+        private val binding: ItemViewUserListBinding
+    ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(data: ItemsItem?) {
             binding.data = data
             itemView.setOnClickListener {
@@ -42,8 +43,10 @@ class UsersAdapter:
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UsersViewHolder {
         return UsersViewHolder(
-            DataBindingUtil.inflate(LayoutInflater.from(parent.context),
-                R.layout.item_user_list, parent, false)
+            DataBindingUtil.inflate(
+                LayoutInflater.from(parent.context),
+                R.layout.item_view_user_list, parent, false
+            )
         )
     }
 

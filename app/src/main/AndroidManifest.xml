@@ -20,6 +20,8 @@
         <activity
             android:name="com.example.githubuserapp.presentation.ui.activity.detailuser.DetailUserActivity"
             android:exported="true" />
+        <activity android:name=".presentation.ui.activity.detailuser.detail_favorite.DetailFavoriteActivity"
+            android:exported="true"/>
         <activity
             android:name="com.example.githubuserapp.presentation.ui.activity.settings.SettingsActivity"
             android:exported="true" />

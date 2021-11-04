@@ -34,6 +34,7 @@
             android:textSize="@dimen/text_small_medium"
             android:layout_marginTop="@dimen/space_xsmall"
             android:maxLines="1"
+            android:ellipsize="end"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toRightOf="@+id/ci_profile"
             app:textViewFontFamily="open-sans-regular"

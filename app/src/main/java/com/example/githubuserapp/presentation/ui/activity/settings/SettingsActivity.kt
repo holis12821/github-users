@@ -8,7 +8,7 @@ import com.example.githubuserapp.databinding.ActivitySettingsBinding
 import com.example.githubuserapp.presentation.ui.custom.NavigationView
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class SettingsActivity: BaseActivity<ActivitySettingsBinding>() {
+class SettingsActivity : BaseActivity<ActivitySettingsBinding>() {
 
     private val viewModel by viewModel<SettingsViewModel>()
 
@@ -31,10 +31,10 @@ class SettingsActivity: BaseActivity<ActivitySettingsBinding>() {
 
     private fun setUpNavigation() {
         navigationView = NavigationView(this)
-            .setOnBackPressedIcon(R.drawable.ic_baseline_arrow_back_ios_24)
             .setupTitle(resources.getString(R.string.settings))
+            .setOnBackPressedIcon(R.drawable.ic_baseline_arrow_back_ios_24)
             .setNavigation {
-                when(it.id) {
+                when (it.id) {
                     R.id.navigation_back -> {
                         onBackPressed()
                     }
@@ -47,9 +47,11 @@ class SettingsActivity: BaseActivity<ActivitySettingsBinding>() {
             if (isDarkModeActive) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
                 binding.switchTheme.isChecked = true
+                binding.ivDarkMode.setImageResource(R.drawable.ic_baseline_dark_mode_24_white)
             } else {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
                 binding.switchTheme.isChecked = false
+                binding.ivDarkMode.setImageResource(R.drawable.ic_baseline_dark_mode_24_dark_grey)
             }
         })
     }

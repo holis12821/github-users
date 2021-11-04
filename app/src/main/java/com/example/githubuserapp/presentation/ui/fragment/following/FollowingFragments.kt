@@ -30,8 +30,8 @@ class FollowingFragments: BaseFragment<FragmentFollowingBinding>() {
 
     private fun initView() {
         setUpAdapter()
-        val username = arguments?.getParcelable<ItemsItem>(KEY_EXTRA_USERS)
-        viewModel.setUserName(username = username?.login ?: "")
+        val username = arguments?.getParcelable<ItemsItem>(KEY_EXTRA_USERS) as ItemsItem
+        viewModel.getFollowing(username = username.login ?: "")
     }
 
     private fun onObserver() {

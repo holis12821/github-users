@@ -7,5 +7,6 @@ interface LocalDatabaseRepository {
     suspend fun saveFavoriteUsers(entity: DetailUsersResponse)
     suspend fun deleteFavoriteUsers(entity: DetailUsersResponse)
     suspend fun getAllFavoriteUsers(): Flow<List<DetailUsersResponse>>
+    suspend fun getUserDetail(username: String): Flow<DetailUsersResponse>
 
 }

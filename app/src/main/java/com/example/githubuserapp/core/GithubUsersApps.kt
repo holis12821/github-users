@@ -6,6 +6,7 @@
 package com.example.githubuserapp.core
 
 import android.app.Application
+import android.content.Context
 import androidx.multidex.MultiDex
 import androidx.multidex.MultiDexApplication
 import com.example.githubuserapp.di.*
@@ -46,5 +47,9 @@ class GithubUsersApps: MultiDexApplication() {
 
     companion object {
         private var mInstance: GithubUsersApps? = null
+
+        fun getContext(): Context? {
+            return mInstance?.applicationContext
+        }
     }
 }

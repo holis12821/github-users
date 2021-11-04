@@ -7,16 +7,26 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.githubuserapp.R
 import com.example.githubuserapp.data.response.DetailUsersResponse
 import com.example.githubuserapp.databinding.ItemViewFavoriteBinding
+import com.example.githubuserapp.presentation.ui.adapter.callback.AdapterClickListener
 
 class FavoriteAdapter: RecyclerView.Adapter<FavoriteAdapter.FavoriteViewHolder>() {
 
     private val list = mutableListOf<DetailUsersResponse>()
 
+    lateinit var listener: AdapterClickListener<DetailUsersResponse?>
+
     inner class FavoriteViewHolder(
         private val binding: ItemViewFavoriteBinding
     ): RecyclerView.ViewHolder(binding.root) {
-        fun bind(data: DetailUsersResponse) {
+        fun bind(data: DetailUsersResponse?) {
             binding.data = data
+            binding.tvUsername.text = data?.name ?: "-"
+            binding.tvCompany.text = data?.company ?: "-"
+            binding.tvLocation.text = data?.location ?: "-"
+            //clickable to detail favorite
+            itemView.setOnClickListener {
+                listener.onItemClickCallback(data)
+            }
         }
     }
 

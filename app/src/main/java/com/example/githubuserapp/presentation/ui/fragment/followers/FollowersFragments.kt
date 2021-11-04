@@ -5,6 +5,7 @@
  * Last modified 02/10/21 11:21 PM by Nurholis*/
 package com.example.githubuserapp.presentation.ui.fragment.followers
 
+import android.content.res.Configuration
 import com.example.githubuserapp.R
 import com.example.githubuserapp.core.BaseFragment
 import com.example.githubuserapp.data.response.model.ItemsItem
@@ -16,22 +17,22 @@ import com.example.githubuserapp.external.extension.viewVisible
 import com.example.githubuserapp.presentation.ui.adapter.AdapterFollow
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class FollowersFragments: BaseFragment<FragmentFollowersBinding>() {
+class FollowersFragments : BaseFragment<FragmentFollowersBinding>() {
     //init field on this class and inject viewModel
     private val viewModel by viewModel<FollowersFragmentsViewModel>()
-    private val adapter =  AdapterFollow()
+    private val adapter = AdapterFollow()
 
     override fun getResLayoutId(): Int = R.layout.fragment_followers
 
     override fun onViewCreated() {
-       initView()
-       onObserver()
+        initView()
+        onObserver()
     }
 
     private fun initView() {
         setUpAdapter()
-        val username = arguments?.getParcelable<ItemsItem>(KEY_EXTRA_USERS)
-        viewModel.setUsername(username = username?.login ?: "")
+        val username = arguments?.getParcelable<ItemsItem>(KEY_EXTRA_USERS) as ItemsItem
+        viewModel.getFollowers(username = username.login ?: "")
     }
 
     private fun onObserver() {
@@ -57,7 +58,7 @@ class FollowersFragments: BaseFragment<FragmentFollowersBinding>() {
     }
 
     private fun onInitState() {
-        binding?.rvList?.viewGone= true
+        binding?.rvList?.viewGone = true
     }
 
     private fun onProgress(loading: Boolean) {
@@ -70,7 +71,7 @@ class FollowersFragments: BaseFragment<FragmentFollowersBinding>() {
 
     private fun onShowMessage(message: String?) {
         activity?.let {
-            showToastDanger(it) { message ?: ""}
+            showToastDanger(it) { message ?: "" }
         }
         binding?.layoutEmptyData?.viewVisible = true
         binding?.rvList?.viewVisible = false

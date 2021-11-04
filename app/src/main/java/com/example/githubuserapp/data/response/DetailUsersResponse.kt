@@ -1,10 +1,13 @@
 package com.example.githubuserapp.data.response
 
+import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 @Entity(tableName = "table_user")
 data class DetailUsersResponse(@PrimaryKey
                                @SerializedName("id")
@@ -37,10 +40,12 @@ data class DetailUsersResponse(@PrimaryKey
                                @ColumnInfo
                                @SerializedName("company")
                                val company: String? = null,
+                               @ColumnInfo
                                @SerializedName("public_repos")
                                val publicRepos: Int? = null,
                                @SerializedName("gravatar_id")
                                val gravatarId: String? = null,
+                               @ColumnInfo
                                @SerializedName("email")
                                val email: String? = null,
                                @SerializedName("organizations_url")
@@ -57,6 +62,7 @@ data class DetailUsersResponse(@PrimaryKey
                                val url: String? = null,
                                @SerializedName("received_events_url")
                                val receivedEventsUrl: String? = null,
+                               @ColumnInfo
                                @SerializedName("followers")
                                val followers: Int? = null,
                                @SerializedName("avatar_url")
@@ -65,12 +71,14 @@ data class DetailUsersResponse(@PrimaryKey
                                val eventsUrl: String? = null,
                                @SerializedName("html_url")
                                val htmlUrl: String? = null,
+                               @ColumnInfo
                                @SerializedName("following")
                                val following: Int? = null,
+                               @ColumnInfo
                                @SerializedName("name")
                                val name: String? = null,
                                @ColumnInfo
                                @SerializedName("location")
                                val location: String? = null,
                                @SerializedName("node_id")
-                               val nodeId: String? = null)
+                               val nodeId: String? = null): Parcelable

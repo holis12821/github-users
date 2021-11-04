@@ -19,9 +19,8 @@
     <string name="txt_content_empty_data">Coba lakukan pencarian data</string>
     <string name="txt_content_empty_data_no_internet">Periksa kembali koneksi internet anda, terimakasih.</string>
     <string name="txt_info_user_black">Data user tidak lengkap</string>
-    <string name="key_dark_mode">dark mode</string>
+    <string name="key_dark_mode">dark_mode</string>
     <string name="nothing">Tidak</string>
-    <string name="name"></string>
     <string name="dark_mode">Mengatur Tema terang dan gelap</string>
     <string name="txt_change_ui_theme">Merubah Pengaturan tema aplikasi</string>
     <string name="settings">Settings</string>
@@ -29,11 +28,13 @@
     <string name="delete_data_to_database">Berhasil Menghapus Data</string>
 
     <string name="name_users">Name : %s</string>
-    <string name="bio_users">Bio : %s</string>
+    <string name="email_name">Email : %s</string>
     <string name="location_users">Location : %s</string>
     <string name="company_users">Company : %s</string>
 
     <string name="favorite">Favorite</string>
 
+    <string name="setting_on">Dark Mode Aktif</string>
+    <string name="setting_off">Dark Mode Aktif</string>
 
 </resources>

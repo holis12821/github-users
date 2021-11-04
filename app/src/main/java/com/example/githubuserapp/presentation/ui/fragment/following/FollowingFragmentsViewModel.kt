@@ -23,17 +23,7 @@ class FollowingFragmentsViewModel(
     private val _stateData = MutableLiveData<FollowingViewState>(FollowingViewState.Init)
     val stateData: LiveData<FollowingViewState> get() = _stateData
 
-    private var username = ""
-
-    init {
-        getFollowing(username = username)
-    }
-
-    fun setUserName(username: String) {
-        this.username = username
-    }
-
-    private fun getFollowing(username: String) {
+    fun getFollowing(username: String) {
         viewModelScope.launch {
             useCase.execute(username = username)
                 .onStart { showLoading() }

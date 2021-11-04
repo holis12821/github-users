@@ -7,6 +7,7 @@ package com.example.githubuserapp.presentation.ui.activity.home
 
 import com.example.githubuserapp.data.response.UsersResponse
 import com.example.githubuserapp.data.response.model.ItemsItem
+import com.example.githubuserapp.presentation.ui.activity.detailuser.DetailUserViewState
 
 /**
  * sealed class used to representation a finite class hierarchy.

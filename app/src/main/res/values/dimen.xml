@@ -29,6 +29,7 @@
     <dimen name="space_big_medium">45dp</dimen>
     <dimen name="space_big_semi_medium">56dp</dimen>
     <dimen name="space_big_xlarge">60dp</dimen>
+    <dimen name="space_big_super">64dp</dimen>
 
     <!-- Elevation -->
     <dimen name="elevation_xsmall">2dp</dimen>

@@ -12,21 +12,22 @@ import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.githubuserapp.R
 import com.example.githubuserapp.core.BaseActivity
-import com.example.githubuserapp.data.response.UsersResponse
 import com.example.githubuserapp.data.response.model.ItemsItem
 import com.example.githubuserapp.databinding.ActivityMainBinding
 import com.example.githubuserapp.external.constant.KEY_EXTRA_USERS
 import com.example.githubuserapp.external.extension.*
 import com.example.githubuserapp.presentation.ui.activity.detailuser.DetailUserActivity
+import com.example.githubuserapp.presentation.ui.activity.favorite.FavoriteActivity
 import com.example.githubuserapp.presentation.ui.activity.settings.SettingsActivity
-import com.example.githubuserapp.presentation.ui.adapter.AdapterClickListener
 import com.example.githubuserapp.presentation.ui.adapter.UsersAdapter
+import com.example.githubuserapp.presentation.ui.adapter.callback.AdapterClickListener
 import com.example.githubuserapp.presentation.ui.custom.NavigationView
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
     //inject view Model in MainActivity using delegate property
     private val viewModel by viewModel<MainViewModel>()
+
     //initialization view
     private lateinit var navigationView: NavigationView
 
@@ -34,7 +35,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     override fun getResLayoutId(): Int = R.layout.activity_main
 
-   private val  adapter = UsersAdapter().apply {
+    private val adapter = UsersAdapter().apply {
         listener = object : AdapterClickListener<ItemsItem?> {
             override fun onItemClickCallback(data: ItemsItem?) {
                 val intent = Intent(this@MainActivity, DetailUserActivity::class.java)
@@ -85,7 +86,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     }
 
     private fun handleState(state: MainViewState) {
-        when(state) {
+        when (state) {
             is MainViewState.Init -> onInitState()
             is MainViewState.Progress -> onProgress(state.isLoading)
             is MainViewState.ShowMessage -> onShowMessage(state.message)
@@ -93,22 +94,24 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         }
     }
 
-    private fun setUpNavigationView(){
+    private fun setUpNavigationView() {
         navigationView = NavigationView(this)
             .setupTitle(resources.getString(R.string.github_title_navbar))
-            .setupNavIcon(R.drawable.ic_baseline_settings_24)
+            .setupNavIcon(R.drawable.ic_baseline_settings_24_white)
             .setNavMoreIcon(R.drawable.ic_baseline_favorite_24_white)
             .setNavigation { view ->
                 //set up local favorite users
-                when(view.id) {
+                when (view.id) {
                     //create callback for icon in navBar
                     R.id.icon_settings -> {
-                        //setting
+                        //settings
                         val intent = Intent(this, SettingsActivity::class.java)
                         startActivity(intent)
                     }
                     R.id.icon_favorite -> {
                         //favorite
+                        val intent = Intent(this, FavoriteActivity::class.java)
+                        startActivity(intent)
                     }
                 }
             }
@@ -148,10 +151,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     }
 
     private fun onSuccess(list: List<ItemsItem>?) {
-        if (list.isNullOrEmpty() ) {
+        if (list.isNullOrEmpty()) {
             binding.layoutEmptyData.viewVisible = false
             binding.rvListUsers.viewVisible = false
             binding.layoutSearchNotFound.viewVisible = true
+            binding.layoutNoInternet.viewVisible = false
         } else {
             binding.layoutSearchNotFound.viewVisible = false
             binding.layoutNoInternet.viewVisible = false

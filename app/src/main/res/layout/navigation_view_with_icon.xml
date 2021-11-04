@@ -30,7 +30,7 @@
         android:layout_marginEnd="@dimen/space_medium_large"
         app:layout_constraintEnd_toStartOf="@id/icon_favorite"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/ic_baseline_settings_24"/>
+        tools:src="@drawable/ic_baseline_settings_24_white"/>
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/icon_favorite"

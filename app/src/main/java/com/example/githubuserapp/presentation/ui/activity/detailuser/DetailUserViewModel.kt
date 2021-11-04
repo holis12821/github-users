@@ -23,30 +23,21 @@ class DetailUserViewModel(
     private val usersUseCase: DetailUsersUseCase,
     private val addFavoriteUsersUseCase: AddFavoriteUsersUseCase,
     private val removeFavoriteUsersUseCase: RemoveFavoriteUsersUseCase
-): ViewModel() {
+
+) : ViewModel() {
     //init state
     private val _stateData = MutableLiveData<DetailUserViewState>(DetailUserViewState.Init)
     val stateData: LiveData<DetailUserViewState> get() = _stateData
 
     private lateinit var detailUsersResponse: DetailUsersResponse
 
-    private var username = ""
-
-    init {
-        getDetailUsers(username = username)
-    }
-
-    fun init (detailUsersResponse: DetailUsersResponse) {
+    fun init(detailUsersResponse: DetailUsersResponse) {
         this.detailUsersResponse = detailUsersResponse
     }
 
-    fun getDetailUsers(): DetailUsersResponse = detailUsersResponse
+    fun getDataDetailUser(): DetailUsersResponse = detailUsersResponse
 
-    fun setUsername(username: String) {
-        this.username = username
-    }
-
-    private fun getDetailUsers(username: String) {
+    fun getDetailUsers(username: String) {
         viewModelScope.launch {
             usersUseCase.execute(username = username)
                 .onStart { showLoading() }
@@ -58,7 +49,6 @@ class DetailUserViewModel(
                     hideLoading()
                     showDetailUser(result)
                 }
-
         }
     }
 

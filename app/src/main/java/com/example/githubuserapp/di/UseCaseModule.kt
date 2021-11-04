@@ -9,13 +9,14 @@ import com.example.githubuserapp.domain.usecase.*
 import org.koin.dsl.module
 
 val useCaseModule = module {
-    single { AddThemeDataStoreUseCase(get()) }
     single { AddFavoriteUsersUseCase(get()) }
+    single { AddThemeDataStoreUseCase(get()) }
     single { DetailUsersUseCase(get()) }
     single { FollowersUseCase(get()) }
     single { FollowingUseCase(get()) }
     single { GithubUsersUseCase(get()) }
-    single { GetThemeDataStoreUseCase(get()) }
     single { GetFavoriteUsersUseCase(get()) }
+    single { GetDetailFavoriteUseCase(get()) }
+    single { GetThemeDataStoreUseCase(get()) }
     single { RemoveFavoriteUsersUseCase(get()) }
 }

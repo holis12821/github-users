@@ -13,8 +13,13 @@ const val networkConnectTimeOut = 30L
 const val networkWriteTimeout = 30L
 const val networkReadTimeOut = 30L
 
+//constant handle configuration change
+const val KEY_ORIENTATION_PORTRAIT = 1
+const val KEY_ORIENTATION_LANDSCAPE =2
+
 //key constant to handle shared data via bundle, intent etc.
 const val KEY_EXTRA_USERS = "extra_users"
+const val KEY_EXTRA_FAVORITE_USERS = "extra_favorite_users"
 
 @StringRes
 val TAB_TITLES_FRAGMENT = intArrayOf(

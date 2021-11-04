@@ -2,7 +2,7 @@ package com.example.githubuserapp.data.local.dao
 
 import androidx.room.*
 import com.example.githubuserapp.data.response.DetailUsersResponse
-import com.example.githubuserapp.data.response.model.ItemsItem
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface FavoriteDao {
@@ -20,6 +20,10 @@ interface FavoriteDao {
      * */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
    suspend fun add(entity: DetailUsersResponse)
+
+   @Query("SELECT * FROM table_user WHERE login = :username")
+   suspend fun getUserDetail(username: String): DetailUsersResponse
+
     /**
      * This query is used to access database which will delete data
      * or entity into database*/
