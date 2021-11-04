@@ -176,23 +176,6 @@
                     app:layout_constraintTop_toBottomOf="@+id/tv_company"
                     app:textViewFontFamily="open-sans-semi-bold"
                     tools:text="Location" />
-
-                <com.google.android.material.tabs.TabLayout
-                    android:id="@+id/tabs_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/space_small"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_location"
-                    app:tabSelectedTextColor="@color/dark_grey"
-                    app:tabTextColor="@color/dark_grey"
-                    tools:ignore="SpeakableTextPresentCheck" />
-
-                <androidx.viewpager2.widget.ViewPager2
-                    android:id="@+id/view_pager"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@+id/tabs_layout" />
-
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </ScrollView>

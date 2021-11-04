@@ -23,7 +23,6 @@ class DetailFavoriteActivity : BaseActivity<ActivityDetailFavoriteBinding>() {
     private val viewModel by viewModel<DetailFavoriteViewModel>()
 
     private lateinit var navigationView: NavigationView
-    private lateinit var viewPagerAdapter: ViewPagerAdapter
 
     override fun getResLayoutId(): Int = R.layout.activity_detail_favorite
 
@@ -34,33 +33,18 @@ class DetailFavoriteActivity : BaseActivity<ActivityDetailFavoriteBinding>() {
 
     private fun initView() {
         //get data from previous activity user detail
-        val getFavoriteExtra = intent.getParcelableExtra<ItemsItem>(KEY_EXTRA_FAVORITE_USERS)
+        val getFavoriteExtra = intent.getParcelableExtra<DetailUsersResponse>(KEY_EXTRA_FAVORITE_USERS)
         //bind viewModel in data binding
         binding.viewModel = viewModel
         //get detail favorite
         viewModel.getFavoriteDetail(getFavoriteExtra?.login ?: "")
-
-        val mBundle = Bundle()
-        mBundle.putParcelable(KEY_EXTRA_FAVORITE_USERS, getFavoriteExtra)
         setUpNavigationView()
-        //setUp Adapter to handle ViewPager2
-        setUpAdapterViewPager(mBundle)
-    }
-
-    private fun setUpAdapterViewPager(mBundle: Bundle) {
-        viewPagerAdapter = ViewPagerAdapter(this, mBundle = mBundle)
-        with(binding) {
-            viewPager.adapter = viewPagerAdapter
-            TabLayoutMediator(tabsLayout, viewPager) { tabsLayout, position ->
-                tabsLayout.text = resources.getString(TAB_TITLES_FRAGMENT[position])
-            }.attach()
-        }
     }
 
     private fun setUpNavigationView() {
         navigationView =
             NavigationView(this).setOnBackPressedIcon(R.drawable.ic_baseline_arrow_back_ios_24)
-                .setupTitle(resources.getString(R.string.detail_users))
+                .setupTitle(resources.getString(R.string.detail_favorite))
                 .setupNavIcon(R.drawable.ic_baseline_settings_24_white)
                 .setNavigation {
                     when (it.id) {

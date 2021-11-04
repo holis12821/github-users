@@ -6,7 +6,6 @@
 package com.example.githubuserapp.presentation.ui.activity.detailuser
 
 import android.content.Intent
-import android.content.res.Configuration
 import android.os.Bundle
 import com.bumptech.glide.Glide
 import com.example.githubuserapp.R
@@ -17,7 +16,6 @@ import com.example.githubuserapp.databinding.ActivityDetailUserBinding
 import com.example.githubuserapp.external.constant.*
 import com.example.githubuserapp.external.extension.viewGone
 import com.example.githubuserapp.external.extension.viewVisible
-import com.example.githubuserapp.presentation.ui.activity.favorite.FavoriteActivity
 import com.example.githubuserapp.presentation.ui.activity.settings.SettingsActivity
 import com.example.githubuserapp.presentation.ui.adapter.ViewPagerAdapter
 import com.example.githubuserapp.presentation.ui.custom.NavigationView
@@ -146,7 +144,7 @@ class DetailUserActivity : BaseActivity<ActivityDetailUserBinding>() {
     }
 
     private fun onShowMessage(message: String?) {
-        showToastDanger(this) { message ?: ""}
+        showToastDanger(this) { message ?: "" }
     }
 
     private fun onChangeFavorite(isChange: Boolean) {
@@ -159,13 +157,13 @@ class DetailUserActivity : BaseActivity<ActivityDetailUserBinding>() {
     }
 
     private fun onAddOrRemoveFavorite(detailUsers: DetailUsersResponse?) {
-       if (!isFavorite) {
-           viewModel.saveAsFavorite(detailUsers)
-           showPositiveToast(this) {resources.getString(R.string.save_data_to_database)}
-       } else {
-           viewModel.removeAsFavorite(detailUsers)
-           showPositiveToast(this) {resources.getString(R.string.delete_data_to_database)}
-       }
+        if (!isFavorite) {
+            viewModel.saveAsFavorite(detailUsers)
+            showPositiveToast(this) { resources.getString(R.string.save_data_to_database) }
+        } else {
+            viewModel.removeAsFavorite(detailUsers)
+            showPositiveToast(this) { resources.getString(R.string.delete_data_to_database) }
+        }
     }
 
     override fun onDestroy() {

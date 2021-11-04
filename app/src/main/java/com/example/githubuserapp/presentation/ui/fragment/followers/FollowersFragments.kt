@@ -5,7 +5,6 @@
  * Last modified 02/10/21 11:21 PM by Nurholis*/
 package com.example.githubuserapp.presentation.ui.fragment.followers
 
-import android.content.res.Configuration
 import com.example.githubuserapp.R
 import com.example.githubuserapp.core.BaseFragment
 import com.example.githubuserapp.data.response.model.ItemsItem

@@ -1,6 +1,7 @@
 <resources>
     <string name="txt_profile">Profile Users</string>
     <string name="detail_users">Detail Pengguna</string>
+    <string name="detail_favorite">Detail Favorite</string>
 
     <string name="Followers">Followers</string>
     <string name="Following">Following</string>
@@ -24,8 +25,8 @@
     <string name="dark_mode">Mengatur Tema terang dan gelap</string>
     <string name="txt_change_ui_theme">Merubah Pengaturan tema aplikasi</string>
     <string name="settings">Settings</string>
-    <string name="save_data_to_database">Berhasil Menyimpan Data</string>
-    <string name="delete_data_to_database">Berhasil Menghapus Data</string>
+    <string name="save_data_to_database">Users ditambahkan ke favorite</string>
+    <string name="delete_data_to_database">Users dihapus dari favorite</string>
 
     <string name="name_users">Name : %s</string>
     <string name="email_name">Email : %s</string>
