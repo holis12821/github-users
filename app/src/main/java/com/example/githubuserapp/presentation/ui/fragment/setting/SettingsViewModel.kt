@@ -18,7 +18,7 @@ class SettingsViewModel(
     }
 
     fun saveThemeSettings(isDarkModeActive: Boolean) {
-        viewModelScope.launch() {
+        viewModelScope.launch {
             saveThemeDataStoreUseCase.execute(isDarkModeActive)
         }
     }

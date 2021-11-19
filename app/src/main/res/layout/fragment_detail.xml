@@ -10,11 +10,6 @@
             type="com.example.githubuserapp.presentation.ui.fragment.detailusers.DetailFragmentViewModel" />
     </data>
 
-    <ScrollView
-        android:id="@+id/scrollView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -24,7 +19,6 @@
                 android:id="@+id/tv_profile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/background_line"
                 android:padding="@dimen/space_small"
                 android:text="@string/txt_profile"
                 android:textAlignment="center"
@@ -215,7 +209,5 @@
                 app:layout_constraintTop_toBottomOf="@+id/tabs_layout"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </ScrollView>
 
 </layout>

@@ -4,10 +4,9 @@ import androidx.appcompat.app.AppCompatDelegate
 import com.example.githubuserapp.R
 import com.example.githubuserapp.core.BaseFragment
 import com.example.githubuserapp.databinding.FragmentSettingsBinding
-import com.example.githubuserapp.presentation.ui.activity.main.MainActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class SettingsFragment: BaseFragment<FragmentSettingsBinding>() {
+class SettingsFragment : BaseFragment<FragmentSettingsBinding>() {
 
     private val viewModel by viewModel<SettingsViewModel>()
 

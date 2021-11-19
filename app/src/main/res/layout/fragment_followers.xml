@@ -17,7 +17,7 @@
             android:id="@+id/rv_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/space_xsmall"
+            android:paddingTop="@dimen/space_medium_large"
             android:paddingLeft="@dimen/space_medium_large"
             android:paddingRight="@dimen/space_medium_large"
             app:layout_constraintTop_toTopOf="parent"

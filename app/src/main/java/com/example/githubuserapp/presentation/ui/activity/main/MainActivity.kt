@@ -35,7 +35,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             setOf(
                 R.id.navigation_home,
                 R.id.navigation_favorite_users,
-                R.id.navigation_follow
+                R.id.navigation_settings
             )
         )
         setupActionBarWithNavController(mNavController, appBarConfiguration)

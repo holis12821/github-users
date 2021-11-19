@@ -18,10 +18,9 @@ import com.example.githubuserapp.external.extension.viewVisible
 import com.example.githubuserapp.presentation.ui.activity.main.MainActivity
 import com.example.githubuserapp.presentation.ui.adapter.UsersAdapter
 import com.example.githubuserapp.presentation.ui.adapter.callback.AdapterClickListener
-import com.example.githubuserapp.presentation.ui.custom.NavigationView
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class HomeFragment: BaseFragment<FragmentHomeBinding>(){
+class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     //inject view Model in MainActivity using delegate property
     private val viewModel by viewModel<HomeFragmentViewModel>()
@@ -32,9 +31,9 @@ class HomeFragment: BaseFragment<FragmentHomeBinding>(){
     private val adapter = UsersAdapter(this@HomeFragment).apply {
         listener = object : AdapterClickListener<ItemsItem> {
             override fun onItemClickCallback(data: ItemsItem, fragment: Fragment) {
-                 if (fragment is HomeFragment) {
-                     fragment.usersDetails(itemItems = data)
-                 }
+                if (fragment is HomeFragment) {
+                    fragment.usersDetails(itemItems = data)
+                }
             }
 
             override fun onViewClickCallback(view: View, data: ItemsItem, fragment: Fragment) {
@@ -47,7 +46,7 @@ class HomeFragment: BaseFragment<FragmentHomeBinding>(){
     override fun getResLayoutId(): Int = R.layout.fragment_home
 
     override fun onViewCreated() {
-       initView()
+        initView()
         onObserver()
     }
 

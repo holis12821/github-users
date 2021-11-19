@@ -13,7 +13,6 @@ import com.example.githubuserapp.external.extension.viewVisible
 import com.example.githubuserapp.presentation.ui.activity.main.MainActivity
 import com.example.githubuserapp.presentation.ui.adapter.UsersAdapter
 import com.example.githubuserapp.presentation.ui.adapter.callback.AdapterClickListener
-import com.example.githubuserapp.presentation.ui.custom.NavigationView
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class FavoriteFragment : BaseFragment<FragmentFavoriteBinding>() {

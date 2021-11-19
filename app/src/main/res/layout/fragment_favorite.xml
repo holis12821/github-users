@@ -17,6 +17,7 @@
             android:id="@+id/rv_favorite"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:paddingTop="@dimen/space_medium_large"
             android:paddingLeft="@dimen/space_medium_large"
             android:paddingRight="@dimen/space_medium_large"
             app:layout_constraintTop_toTopOf="parent"
