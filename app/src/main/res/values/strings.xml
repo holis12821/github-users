@@ -37,5 +37,10 @@
 
     <string name="setting_on">Dark Mode Aktif</string>
     <string name="setting_off">Dark Mode Aktif</string>
+    <string name="txt_add_to_favorite">Favoritkan</string>
 
+    <string name="txt_id_error">Sepertinya data user id tidak ditemukan</string>
+    <string name="title_home">Home</string>
+    <string name="title_follow_users">Follow</string>
+    <string name="title_detail_users">Detail Users</string>
 </resources>

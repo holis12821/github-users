@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.githubuserapp.presentation.ui.fragment.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/action_home_to_detail_users"
+            app:destination="@+id/navigation_detail_users"/>
+
+        <action
+            android:id="@+id/action_home_to_favorite"
+            app:destination="@+id/navigation_favorite_users"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_favorite_users"
+        android:name="com.example.githubuserapp.presentation.ui.fragment.favorite.FavoriteFragment"
+        android:label="@string/favorite"
+        tools:layout="@layout/fragment_favorite">
+
+        <action
+            android:id="@+id/action_favorite_users_to_detail_users"
+            app:destination="@+id/navigation_detail_users"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="com.example.githubuserapp.presentation.ui.fragment.setting.SettingsFragment"
+        android:label="@string/settings"
+        tools:layout="@layout/fragment_settings"/>
+
+    <fragment
+        android:id="@+id/navigation_detail_users"
+        android:name="com.example.githubuserapp.presentation.ui.fragment.detailusers.DetailFragment"
+        android:label="@string/title_detail_users"
+        tools:layout="@layout/fragment_detail">
+
+        <argument
+            android:name="itemsItem"
+            app:argType="com.example.githubuserapp.data.response.model.ItemsItem"/>
+    </fragment>
+</navigation>

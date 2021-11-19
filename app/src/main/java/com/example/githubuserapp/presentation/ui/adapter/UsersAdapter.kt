@@ -8,26 +8,27 @@ package com.example.githubuserapp.presentation.ui.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.githubuserapp.R
 import com.example.githubuserapp.data.response.model.ItemsItem
 import com.example.githubuserapp.databinding.ItemViewUserListBinding
 import com.example.githubuserapp.presentation.ui.adapter.callback.AdapterClickListener
 
-class UsersAdapter :
+class UsersAdapter(private val fragment: Fragment) :
     RecyclerView.Adapter<UsersAdapter.UsersViewHolder>() {
 
     val list = mutableListOf<ItemsItem>()
 
-    lateinit var listener: AdapterClickListener<ItemsItem?>
+    lateinit var listener: AdapterClickListener<ItemsItem>
 
     inner class UsersViewHolder(
         private val binding: ItemViewUserListBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(data: ItemsItem?) {
+        fun bind(data: ItemsItem) {
             binding.data = data
             itemView.setOnClickListener {
-                listener.onItemClickCallback(data = data)
+                listener.onItemClickCallback(data = data, fragment)
             }
         }
     }

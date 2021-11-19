@@ -7,7 +7,6 @@ package com.example.githubuserapp.domain.usecase
 
 import com.example.githubuserapp.data.response.model.ItemsItem
 import com.example.githubuserapp.domain.repository.api.GithubUsersRepository
-import com.example.githubuserapp.presentation.ui.activity.home.MainViewState
 import kotlinx.coroutines.flow.Flow
 
 class FollowingUseCase(private val repository: GithubUsersRepository) {

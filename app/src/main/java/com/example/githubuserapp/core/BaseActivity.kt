@@ -116,4 +116,13 @@ abstract class BaseActivity<B : ViewDataBinding>: AppCompatActivity() {
             e.printStackTrace()
         }
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        try {
+            progressDialog.dismiss()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
 }

@@ -11,24 +11,15 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/ic_github_icon_white"
         android:supportsRtl="true"
         android:theme="@style/Theme.GithubUserApp">
         <activity
-            android:name="com.example.githubuserapp.presentation.ui.activity.home.MainActivity"
+            android:name="com.example.githubuserapp.presentation.ui.activity.main.MainActivity"
             android:exported="true" />
-        <activity
-            android:name="com.example.githubuserapp.presentation.ui.activity.detailuser.DetailUserActivity"
-            android:exported="true" />
-        <activity android:name=".presentation.ui.activity.detailuser.detail_favorite.DetailFavoriteActivity"
-            android:exported="true"/>
-        <activity
-            android:name="com.example.githubuserapp.presentation.ui.activity.settings.SettingsActivity"
-            android:exported="true" />
-        <activity android:name=".presentation.ui.activity.favorite.FavoriteActivity"
-            android:exported="true"/>
         <activity
             android:name="com.example.githubuserapp.presentation.ui.activity.splashscreen.SplashScreenActivity"
+            android:theme="@style/Theme.GithubUserApp.NoActionBar"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

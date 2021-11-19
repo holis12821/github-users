@@ -8,8 +8,6 @@ import com.example.githubuserapp.domain.usecase.GetThemeDataStoreUseCase
 class SplashScreenViewModel(
     private val getThemeDataStoreUseCase: GetThemeDataStoreUseCase
 ) : ViewModel() {
-
-    //init state
     fun getThemeSettings(): LiveData<Boolean> {
         return getThemeDataStoreUseCase.execute().asLiveData()
     }

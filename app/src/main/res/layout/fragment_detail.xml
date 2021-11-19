@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.githubuserapp.presentation.ui.fragment.detailusers.DetailFragmentViewModel" />
+    </data>
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".presentation.ui.activity.detailuser.DetailUserActivity">
+
+            <com.example.githubuserapp.presentation.ui.custom.GithubTextView
+                android:id="@+id/tv_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_line"
+                android:padding="@dimen/space_small"
+                android:text="@string/txt_profile"
+                android:textAlignment="center"
+                android:textSize="@dimen/heading1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:textViewFontFamily="open-sans-semi-bold" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ci_profile"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toStartOf="@+id/tv_detail_repos"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_profile"
+                tools:src="@tools:sample/avatars" />
+
+            <com.example.githubuserapp.presentation.ui.custom.GithubTextView
+                android:id="@+id/tv_detail_repos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/Repository"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@+id/tv_detail_followers"
+                app:layout_constraintStart_toEndOf="@+id/ci_profile"
+                app:layout_constraintTop_toBottomOf="@+id/tv_calculate_repo"
+                app:textViewFontFamily="open-sans-semi-bold" />
+
+            <com.example.githubuserapp.presentation.ui.custom.GithubTextView
+                android:id="@+id/tv_calculate_repo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/tv_detail_repos"
+                app:layout_constraintStart_toStartOf="@+id/tv_detail_repos"
+                app:layout_constraintTop_toTopOf="@+id/ci_profile"
+                app:textViewFontFamily="open-sans-semi-bold"
+                tools:text="0" />
+
+            <com.example.githubuserapp.presentation.ui.custom.GithubTextView
+                android:id="@+id/tv_detail_followers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/Followers"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@+id/tv_detail_following"
+                app:layout_constraintStart_toEndOf="@+id/tv_detail_repos"
+                app:layout_constraintTop_toBottomOf="@+id/tv_calculate_followers"
+                app:textViewFontFamily="open-sans-semi-bold" />
+
+            <com.example.githubuserapp.presentation.ui.custom.GithubTextView
+                android:id="@+id/tv_calculate_followers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/tv_detail_followers"
+                app:layout_constraintStart_toStartOf="@+id/tv_detail_followers"
+                app:layout_constraintTop_toTopOf="@+id/tv_calculate_repo"
+                app:textViewFontFamily="open-sans-semi-bold"
+                tools:text="1" />
+
+            <com.example.githubuserapp.presentation.ui.custom.GithubTextView
+                android:id="@+id/tv_detail_following"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/Following"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_detail_followers"
+                app:layout_constraintTop_toBottomOf="@+id/tv_calculate_following"
+                app:textViewFontFamily="open-sans-semi-bold" />
+
+            <com.example.githubuserapp.presentation.ui.custom.GithubTextView
+                android:id="@+id/tv_calculate_following"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/tv_detail_following"
+                app:layout_constraintHorizontal_bias="0.496"
+                app:layout_constraintStart_toStartOf="@+id/tv_detail_following"
+                app:layout_constraintTop_toTopOf="@+id/tv_calculate_followers"
+                app:textViewFontFamily="open-sans-semi-bold"
+                tools:text="2" />
+
+            <com.example.githubuserapp.presentation.ui.custom.GithubTextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_semi_medium"
+                android:textSize="@dimen/text_medium_xlarge"
+                app:layout_constraintStart_toStartOf="@+id/ci_profile"
+                app:layout_constraintTop_toBottomOf="@+id/ci_profile"
+                app:textViewFontFamily="open-sans-semi-bold"
+                tools:text="Name" />
+
+            <com.example.githubuserapp.presentation.ui.custom.GithubTextView
+                android:id="@+id/tv_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@+id/tv_name"
+                app:layout_constraintTop_toBottomOf="@+id/tv_name"
+                app:textViewFontFamily="open-sans-semi-bold"
+                tools:text="Email" />
+
+            <com.example.githubuserapp.presentation.ui.custom.GithubTextView
+                android:id="@+id/tv_company"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@+id/tv_email"
+                app:layout_constraintTop_toBottomOf="@+id/tv_email"
+                app:textViewFontFamily="open-sans-semi-bold"
+                tools:text="Company" />
+
+
+            <com.example.githubuserapp.presentation.ui.custom.GithubTextView
+                android:id="@+id/tv_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@+id/tv_company"
+                app:layout_constraintTop_toBottomOf="@+id/tv_company"
+                app:textViewFontFamily="open-sans-semi-bold"
+                tools:text="Location" />
+
+            <View
+                android:id="@+id/separator"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/divider"
+                android:layout_marginTop="@dimen/space_small"
+                app:layout_constraintTop_toBottomOf="@+id/tv_location"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_favorite"
+                android:layout_width="@dimen/space_super_xlarge"
+                android:layout_height="@dimen/space_super_xlarge"
+                android:layout_marginEnd="@dimen/space_xmedium"
+                android:layout_marginTop="@dimen/space_xsmall"
+                android:src="@drawable/ic_baseline_favorite_border_dark_grey"
+                app:layout_constraintTop_toBottomOf="@+id/separator"
+                app:layout_constraintRight_toLeftOf="@+id/tv_favorite"/>
+            <com.example.githubuserapp.presentation.ui.custom.GithubTextView
+                android:id="@+id/tv_favorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_add_to_favorite"
+                android:layout_marginTop="@dimen/space_small"
+                android:layout_marginEnd="@dimen/space_xmedium"
+                android:textSize="@dimen/text_small_medium"
+                app:textViewFontFamily="open-sans-semi-bold"
+                app:layout_constraintTop_toBottomOf="@+id/separator"
+                app:layout_constraintLeft_toRightOf="@+id/iv_favorite"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabs_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_small"
+                app:layout_constraintTop_toBottomOf="@+id/iv_favorite"
+                app:tabSelectedTextColor="@color/dark_grey"
+                app:tabTextColor="@color/dark_grey"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/view_pager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/tabs_layout"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</layout>

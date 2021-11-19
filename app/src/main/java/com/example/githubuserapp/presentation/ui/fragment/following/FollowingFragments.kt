@@ -13,13 +13,13 @@ import com.example.githubuserapp.external.constant.KEY_EXTRA_USERS
 import com.example.githubuserapp.external.extension.setUpVerticalLayoutManager
 import com.example.githubuserapp.external.extension.viewGone
 import com.example.githubuserapp.external.extension.viewVisible
-import com.example.githubuserapp.presentation.ui.adapter.AdapterFollow
+import com.example.githubuserapp.presentation.ui.adapter.UsersAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class FollowingFragments: BaseFragment<FragmentFollowingBinding>() {
     //init field and inject viewModel
     private val viewModel by viewModel<FollowingFragmentsViewModel>()
-    private val adapter = AdapterFollow()
+    private val adapter = UsersAdapter(this@FollowingFragments)
 
     override fun getResLayoutId(): Int = R.layout.fragment_following
 

@@ -15,8 +15,8 @@ val useCaseModule = module {
     single { FollowersUseCase(get()) }
     single { FollowingUseCase(get()) }
     single { GithubUsersUseCase(get()) }
-    single { GetFavoriteUsersUseCase(get()) }
-    single { GetDetailFavoriteUseCase(get()) }
+    single { GetFavoriteListUsersUseCase(get()) }
     single { GetThemeDataStoreUseCase(get()) }
     single { RemoveFavoriteUsersUseCase(get()) }
+    single { UpdateFavoriteUsersUseCase(get()) }
 }

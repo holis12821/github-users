@@ -6,7 +6,6 @@
 package com.example.githubuserapp.data.network
 
 import com.example.githubuserapp.BuildConfig
-import com.example.githubuserapp.data.response.DetailUsersResponse
 import com.example.githubuserapp.data.response.model.ItemsItem
 import com.example.githubuserapp.data.response.UsersResponse
 import retrofit2.http.GET
@@ -31,7 +30,7 @@ interface GithubUsersDataSource {
     @GET("users/{username}")
     suspend fun getDetailUsers(
         @Path("username") username: String?
-    ): DetailUsersResponse
+    ): ItemsItem
 
     @Headers("Authorization: ${BuildConfig.TOKEN}")
     @GET("users/{username}/followers")

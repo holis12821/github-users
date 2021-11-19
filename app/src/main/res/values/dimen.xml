@@ -44,4 +44,7 @@
     <!--Other space-->
     <dimen name="space_super">235dp</dimen>
     <dimen name="space_super_medium">160dp</dimen>
+
+    <!--Stroke-->
+    <dimen name="stroke_small">1dp</dimen>
 </resources>
