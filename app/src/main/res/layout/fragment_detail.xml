@@ -10,6 +10,10 @@
             type="com.example.githubuserapp.presentation.ui.fragment.detailusers.DetailFragmentViewModel" />
     </data>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -166,31 +170,32 @@
                 android:id="@+id/separator"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/divider"
                 android:layout_marginTop="@dimen/space_small"
-                app:layout_constraintTop_toBottomOf="@+id/tv_location"/>
+                android:background="@color/divider"
+                app:layout_constraintTop_toBottomOf="@+id/tv_location" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/iv_favorite"
                 android:layout_width="@dimen/space_super_xlarge"
                 android:layout_height="@dimen/space_super_xlarge"
-                android:layout_marginEnd="@dimen/space_xmedium"
                 android:layout_marginTop="@dimen/space_xsmall"
+                android:layout_marginEnd="@dimen/space_xmedium"
                 android:src="@drawable/ic_baseline_favorite_border_dark_grey"
-                app:layout_constraintTop_toBottomOf="@+id/separator"
-                app:layout_constraintRight_toLeftOf="@+id/tv_favorite"/>
+                app:layout_constraintRight_toLeftOf="@+id/tv_favorite"
+                app:layout_constraintTop_toBottomOf="@+id/separator" />
+
             <com.example.githubuserapp.presentation.ui.custom.GithubTextView
                 android:id="@+id/tv_favorite"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/txt_add_to_favorite"
                 android:layout_marginTop="@dimen/space_small"
                 android:layout_marginEnd="@dimen/space_xmedium"
+                android:text="@string/txt_add_to_favorite"
                 android:textSize="@dimen/text_small_medium"
-                app:textViewFontFamily="open-sans-semi-bold"
-                app:layout_constraintTop_toBottomOf="@+id/separator"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintLeft_toRightOf="@+id/iv_favorite"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                app:layout_constraintTop_toBottomOf="@+id/separator"
+                app:textViewFontFamily="open-sans-semi-bold" />
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tabs_layout"
@@ -206,8 +211,10 @@
                 android:id="@+id/view_pager"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/tabs_layout"/>
+                app:layout_constraintTop_toBottomOf="@+id/tabs_layout" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
 
 </layout>
