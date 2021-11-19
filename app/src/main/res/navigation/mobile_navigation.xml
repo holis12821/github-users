@@ -15,10 +15,6 @@
             android:id="@+id/action_home_to_detail_users"
             app:destination="@+id/navigation_detail_users"/>
 
-        <action
-            android:id="@+id/action_home_to_favorite"
-            app:destination="@+id/navigation_favorite_users"/>
-
     </fragment>
 
     <fragment
@@ -37,6 +33,24 @@
         android:name="com.example.githubuserapp.presentation.ui.fragment.setting.SettingsFragment"
         android:label="@string/settings"
         tools:layout="@layout/fragment_settings"/>
+
+    <fragment
+        android:id="@+id/navigation_followers"
+        android:name="com.example.githubuserapp.presentation.ui.fragment.followers.FollowersFragments"
+        tools:layout="@layout/fragment_followers">
+        <action
+            android:id="@+id/action_followers_users_to_detail_users"
+            app:destination="@+id/navigation_detail_users"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_following"
+        android:name="com.example.githubuserapp.presentation.ui.fragment.following.FollowingFragments"
+        tools:layout="@layout/fragment_following">
+        <action
+            android:id="@+id/action_following_users_to_detail_users"
+            app:destination="@+id/navigation_detail_users"/>
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_detail_users"

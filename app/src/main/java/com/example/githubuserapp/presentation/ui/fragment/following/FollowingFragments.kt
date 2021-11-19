@@ -5,6 +5,9 @@
  * Last modified 15/09/21 13.00 PM by Nurholis*/
 package com.example.githubuserapp.presentation.ui.fragment.following
 
+import android.view.View
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.githubuserapp.R
 import com.example.githubuserapp.core.BaseFragment
 import com.example.githubuserapp.data.response.model.ItemsItem
@@ -13,13 +16,29 @@ import com.example.githubuserapp.external.constant.KEY_EXTRA_USERS
 import com.example.githubuserapp.external.extension.setUpVerticalLayoutManager
 import com.example.githubuserapp.external.extension.viewGone
 import com.example.githubuserapp.external.extension.viewVisible
+import com.example.githubuserapp.presentation.ui.activity.main.MainActivity
 import com.example.githubuserapp.presentation.ui.adapter.UsersAdapter
+import com.example.githubuserapp.presentation.ui.adapter.callback.AdapterClickListener
+import com.example.githubuserapp.presentation.ui.fragment.home.HomeFragmentDirections
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class FollowingFragments: BaseFragment<FragmentFollowingBinding>() {
     //init field and inject viewModel
     private val viewModel by viewModel<FollowingFragmentsViewModel>()
-    private val adapter = UsersAdapter(this@FollowingFragments)
+    private val adapter = UsersAdapter(this@FollowingFragments).apply {
+        listener = object : AdapterClickListener<ItemsItem> {
+            override fun onItemClickCallback(data: ItemsItem, fragment: Fragment) {
+                if (fragment is FollowingFragments) {
+                    fragment.usersDetails(data)
+                }
+            }
+
+            override fun onViewClickCallback(view: View, data: ItemsItem, fragment: Fragment) {
+
+            }
+
+        }
+    }
 
     override fun getResLayoutId(): Int = R.layout.fragment_following
 
@@ -87,9 +106,16 @@ class FollowingFragments: BaseFragment<FragmentFollowingBinding>() {
         }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        binding = null
-        hideProgress()
+    /**
+     * A function to navigate to the Users Details Fragment.
+     *
+     * @param itemItems
+     */
+    fun usersDetails(itemItems: ItemsItem) {
+        if (requireActivity() is MainActivity) {
+            (activity as MainActivity?)?.hideBottomNavigationView()
+        }
+
+        findNavController().navigate(FollowingFragmentsDirections.actionFollowingUsersToDetailUsers(itemsItem = itemItems))
     }
 }

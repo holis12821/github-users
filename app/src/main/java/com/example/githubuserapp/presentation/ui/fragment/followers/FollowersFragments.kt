@@ -5,6 +5,9 @@
  * Last modified 02/10/21 11:21 PM by Nurholis*/
 package com.example.githubuserapp.presentation.ui.fragment.followers
 
+import android.view.View
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.githubuserapp.R
 import com.example.githubuserapp.core.BaseFragment
 import com.example.githubuserapp.data.response.model.ItemsItem
@@ -13,13 +16,29 @@ import com.example.githubuserapp.external.constant.KEY_EXTRA_USERS
 import com.example.githubuserapp.external.extension.setUpVerticalLayoutManager
 import com.example.githubuserapp.external.extension.viewGone
 import com.example.githubuserapp.external.extension.viewVisible
+import com.example.githubuserapp.presentation.ui.activity.main.MainActivity
 import com.example.githubuserapp.presentation.ui.adapter.UsersAdapter
+import com.example.githubuserapp.presentation.ui.adapter.callback.AdapterClickListener
+import com.example.githubuserapp.presentation.ui.fragment.home.HomeFragmentDirections
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class FollowersFragments : BaseFragment<FragmentFollowersBinding>() {
     //init field on this class and inject viewModel
     private val viewModel by viewModel<FollowersFragmentsViewModel>()
-    private val adapter = UsersAdapter(this@FollowersFragments)
+    private val adapter = UsersAdapter(this@FollowersFragments).apply {
+        listener = object : AdapterClickListener<ItemsItem> {
+            override fun onItemClickCallback(data: ItemsItem, fragment: Fragment) {
+                if (fragment is FollowersFragments) {
+                    fragment.usersDetails(data)
+                }
+            }
+
+            override fun onViewClickCallback(view: View, data: ItemsItem, fragment: Fragment) {
+                TODO("Not yet implemented")
+            }
+
+        }
+    }
 
     override fun getResLayoutId(): Int = R.layout.fragment_followers
 
@@ -87,9 +106,16 @@ class FollowersFragments : BaseFragment<FragmentFollowersBinding>() {
         }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        binding = null
-        hideProgress()
+    /**
+     * A function to navigate to the Users Details Fragment.
+     *
+     * @param itemItems
+     */
+    fun usersDetails(itemItems: ItemsItem) {
+        if (requireActivity() is MainActivity) {
+            (activity as MainActivity?)?.hideBottomNavigationView()
+        }
+
+        findNavController().navigate(FollowersFragmentsDirections.actionFollowersUsersToDetailUsers(itemsItem = itemItems))
     }
 }
