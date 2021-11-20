@@ -37,20 +37,14 @@
     <fragment
         android:id="@+id/navigation_followers"
         android:name="com.example.githubuserapp.presentation.ui.fragment.followers.FollowersFragments"
-        tools:layout="@layout/fragment_followers">
-        <action
-            android:id="@+id/action_followers_users_to_detail_users"
-            app:destination="@+id/navigation_detail_users"/>
-    </fragment>
+        android:label="@string/Followers"
+        tools:layout="@layout/fragment_followers"/>
 
     <fragment
         android:id="@+id/navigation_following"
         android:name="com.example.githubuserapp.presentation.ui.fragment.following.FollowingFragments"
-        tools:layout="@layout/fragment_following">
-        <action
-            android:id="@+id/action_following_users_to_detail_users"
-            app:destination="@+id/navigation_detail_users"/>
-    </fragment>
+        android:label="@string/Following"
+        tools:layout="@layout/fragment_following"/>
 
     <fragment
         android:id="@+id/navigation_detail_users"

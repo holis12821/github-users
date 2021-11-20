@@ -47,7 +47,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     }
 
     /**
-     * A function to hide the ButtomNavigationView with animation.
+     * A function to hide the BottomNavigationView with animation.
      */
     fun hideBottomNavigationView() {
         binding.navView.clearAnimation()

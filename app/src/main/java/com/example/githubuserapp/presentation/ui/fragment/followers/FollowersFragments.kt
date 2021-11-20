@@ -25,20 +25,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class FollowersFragments : BaseFragment<FragmentFollowersBinding>() {
     //init field on this class and inject viewModel
     private val viewModel by viewModel<FollowersFragmentsViewModel>()
-    private val adapter = UsersAdapter(this@FollowersFragments).apply {
-        listener = object : AdapterClickListener<ItemsItem> {
-            override fun onItemClickCallback(data: ItemsItem, fragment: Fragment) {
-                if (fragment is FollowersFragments) {
-                    fragment.usersDetails(data)
-                }
-            }
-
-            override fun onViewClickCallback(view: View, data: ItemsItem, fragment: Fragment) {
-                TODO("Not yet implemented")
-            }
-
-        }
-    }
+    private val adapter = UsersAdapter()
 
     override fun getResLayoutId(): Int = R.layout.fragment_followers
 
@@ -104,18 +91,5 @@ class FollowersFragments : BaseFragment<FragmentFollowersBinding>() {
             binding?.rvList?.viewVisible = true
             adapter.setData(listUsers)
         }
-    }
-
-    /**
-     * A function to navigate to the Users Details Fragment.
-     *
-     * @param itemItems
-     */
-    fun usersDetails(itemItems: ItemsItem) {
-        if (requireActivity() is MainActivity) {
-            (activity as MainActivity?)?.hideBottomNavigationView()
-        }
-
-        findNavController().navigate(FollowersFragmentsDirections.actionFollowersUsersToDetailUsers(itemsItem = itemItems))
     }
 }
