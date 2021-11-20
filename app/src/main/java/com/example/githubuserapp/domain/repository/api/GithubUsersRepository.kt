@@ -15,10 +15,4 @@ interface GithubUsersRepository {
     suspend fun getDetailUsers(username: String?): Flow<ItemsItem>
     suspend fun getFollowers(username: String?): Flow<List<ItemsItem>>
     suspend fun getFollowing(username: String?): Flow<List<ItemsItem>>
-
-    //local database repository
-    suspend fun insertFavUsersData(favUsers: ItemsItem?)
-    suspend fun updateFavUsersData(favUsers: ItemsItem?)
-    suspend fun deleteFavUsersData(favUsers: ItemsItem?)
-    suspend fun favoriteUsers(): Flow<List<ItemsItem>>
 }

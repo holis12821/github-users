@@ -36,11 +36,8 @@ interface FavoriteDao {
      *
      * SQLite does not have a boolean data type. Room maps it to an INTEGER column, mapping true to 1 and false to 0.
      */
-    @Query("SELECT * from table_user ORDER BY login ASC")
+    @Query("SELECT * from table_user WHERE isFavorite = 1")
     suspend fun getFavoriteUsersList(): List<ItemsItem>
-
-    @Query("SELECT * FROM table_user WHERE login = :username")
-    fun getUserDetail(username: String?): ItemsItem?
 
     /**
      * A function to update favorite dish details to the local database using Room.
