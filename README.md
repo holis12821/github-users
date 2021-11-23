@@ -1,5 +1,5 @@
 # github-users
-#Whats the projects does ?
+Whats the projects does ?
 This application is used to displaying list users registered on github.
 
 Whats a material this projects ?
