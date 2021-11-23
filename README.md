@@ -9,7 +9,7 @@ The material projects used :
 * Navigation Component. 
 * Coroutine Flow with kotlin Coroutine.
 * Koin Dependency Injection.
-* Shared Preference as session.
+* Data store to setup configuration change such as theme dark mode.
 * Repository Pattern.
 * Timber for Logs.
 
